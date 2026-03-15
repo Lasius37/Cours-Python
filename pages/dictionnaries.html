@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Dictionnaires</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les dictionnaires</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#create">Créer un dictionnaire</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#add">Ajouter ou modifier un élément dans un dictionnaire</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#find">Trouver un élément dans un dictionnaire</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#delete">Supprimer un élément d'un dictionnaire</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#browse">Parcourir un dictionnaire</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="create">
+            <h2>Créer un dictionnaire</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>On peut créer un dictionnaire vide pour le compléter ensuite. On utilise les<span class="comment"> {}</span>.
+                            <pre class="python"><code>dictionnaire_vide = {}</code></pre>
+                        </li>
+                        <li>On peut aussi créer un dictionnaire qui contient déjà des éléments :
+                            <pre class="python"><code>eleve = {<span class="text">"nom"</span>: <span class="text">"Toto"</span>, <span class="text">"note"</span>: <span class="number">14.5</span>}
+<span class="comment"># clés : "nom" et "note", valeurs : "Toto" et 14.5</span></code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/dictionnaries/create.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="add">
+            <h2>Ajouter ou modifier un élément dans un dictionnaire</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        La syntaxe est particulière : on donne la clé dans des<span class="comment"> []</span>,
+                        et la valeur après le<span class="comment"> =</span>. C'est la même syntaxe pour modifier une valeur
+                        dont la clé existe déjà : on écrase les données.
+                    </p>
+                    <pre class="python"><code>eleve[<span class="text">"age"</span>] = <span class="number">12</span> <span class="comment">&nbsp;# ici, l'âge est ajouté au dictionnaire</span>
+eleve[<span class="text">"note"</span>] = <span class="number">15</span> <span class="comment">&nbsp;# ici, la valeur de la note est remplacée</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/dictionnaries/add.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="find">
+            <h2>Trouver un élément dans un dictionnaire</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On cherche la valeur en fonction de la clé.</p>
+                    <pre class="python"><code><span class="function">print</span>(eleve[<span class="text">"nom"</span>]) <span class="comment">&nbsp;# dans ce cas, on affichera "Toto"</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/dictionnaries/find.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="delete">
+            <h2>Supprimer un élément d'un dictionnaire</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On utilise le mot<span class="comment"> del</span>.</p>
+                    <pre class="python"><code>personnage = {
+    <span class="text">"nom"</span>: <span class="text">"Dark Vador"</span>,
+    <span class="text">"categorie"</span>: <span class="text">"Boss"</span>,
+    <span class="text">"force"</span>: <span class="number">18</span>,
+    <span class="text">"arme"</span>: <span class="text">"sabre laser"</span>
+}
+<span class="word">del</span> personnage[<span class="text">"arme"</span>]</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/dictionnaries/delete.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="browse">
+            <h2>Parcourir un dictionnaire</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Il y a plusieurs manières de parcourir un dictionnaire avec une boucle<span class="comment"> for</span>.</p>
+                    <pre class="python"><code><span class="word">for</span> cle <span class="word">in</span> dictionnaire.<span class="function">keys</span>():
+<span class="comment"># parcourt le dictionnaire selon les clés</span>
+
+<span class="word">for</span> valeur <span class="word">in</span> dictionnaire.<span class="function">values</span>():
+<span class="comment"># parcourt le dictionnaire selon les valeurs</span>
+
+<span class="word">for</span> cle, valeur <span class="word">in</span> dictionnaire.<span class="function">items</span>():
+<span class="comment"># parcourt le dictionnaire selon les deux</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/dictionnaries/browse.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Appel d'une clé inexistante :<span class="code error"> KeyError</span>.</li>
+                        <li>Confusion liste/dictionnaire :<span class="code error"> KeyError</span> ou <span class="error">comportement anormal</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>d = {"a": 3, "b": 7}
+d["a"] = d["a"] + 10
+print(d)</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>notes = {math: 15, "anglais": 12}
+print(notes[math])</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer un dictionnaire correspondant à un livre, avec son titre, son auteur et l'année d'édition.</li>
+                                <li>Afficher chaque donnée séparément.</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/dictionnaries/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

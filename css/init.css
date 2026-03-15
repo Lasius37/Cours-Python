@@ -1,0 +1,71 @@
+/* *********************************************************************************************************************
+***                                                    VARIABLES                                                     ***
+********************************************************************************************************************* */
+:root {
+    --main-color: #4A2C6D;
+    --main-color-light: #D2CADB;
+    --css: #006eba;
+    --css-light: #BFDBEE;
+    --html: #e02e00;
+    --html-light: #F7CBBF;
+    --python: #3776AB;
+    --python-light: #FFF4CE;
+    --js: #e4bd00;
+    --js-light: #F8EEBF;
+    --comment-color: #808080;
+    --text-color: #008000;
+    --number-color: #0000aa;
+    --word-color: #ff8080;
+    --function-color: #800080;
+    --error-color: #aa0000;
+
+    --title-font: "Montserrat", sans-serif;
+    --text-font: "Nunito Sans", sans-serif;
+    --code-font: "Source Code Pro", monotype;
+
+    --small-text-size: 0.8rem;
+    --text-size: 1.15rem;
+    --code-size: 1rem;
+    --main-title-size: 2.5rem;
+    --secondary-title-size: 1.8rem;
+
+    --small-line-height: 1.3em;
+    --std-line-height: 1.7em;
+    --large-line-height: 2em;
+
+    --xs-gap: 0.2em;
+    --s-gap: 0.5em;
+    --m-gap: 1em;
+    --l-gap: 2em;
+    --xl-gap: 3em;
+}
+
+/* *********************************************************************************************************************
+***                                                    INITIALIZE                                                    ***
+********************************************************************************************************************* */
+html, body, ul, ol, pre, li, h1, h2, h3, h4, h5, h6, a, i, p, nav, section {
+    font-family: var(--text-font);
+    font-size: var(--text-size);
+    font-weight: normal;
+    line-height: var(--std-line-height);
+    color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font);
+}
+
+code {
+    font-family: var(--code-font);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}

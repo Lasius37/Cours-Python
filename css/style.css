@@ -1,0 +1,422 @@
+/* *********************************************************************************************************************
+***                                                    STRUCTURE                                                     ***
+********************************************************************************************************************* */
+html, body {
+    height: 100%;
+}
+
+body {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 22% 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+}
+
+aside, main {
+    min-height: 0;
+    overflow-y: auto;
+}
+
+header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+aside {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+main {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+footer {
+    grid-column: 1 / -1;
+    grid-row: -1;
+}
+
+/* *********************************************************************************************************************
+***                                                      HEADER                                                      ***
+********************************************************************************************************************* */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+}
+
+h1 {
+    text-align: center;
+    font-size: var(--main-title-size);
+    color: var(--main-color-light);
+    font-weight: bold;
+}
+
+/* Navbar
+   ========================================================================== */
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#navbar__home {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--m-gap);
+}
+
+.navbar__element {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: var(--xs-gap) var(--m-gap);
+    border-bottom: none;
+    position: relative;
+}
+
+.navbar__element * {
+    color: var(--main-color-light);
+}
+
+.navbar__element:hover {
+    background-color: var(--main-color-light);
+    cursor: pointer;
+}
+
+.navbar__element:hover * {
+    color: var(--main-color);
+}
+
+.navbar__element:hover > .navbar__submenu,
+.navbar__element:focus-within > .navbar__submenu {
+    display: block;
+}
+
+.navbar__submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color-light);
+    white-space: nowrap;
+}
+
+.navbar__submenu a {
+    padding: 0 var(--m-gap);
+    display: block;
+    white-space: nowrap;
+}
+
+.navbar__submenu a:hover {
+    background-color: white;
+}
+
+.navbar__submenu a:active {
+    color: var(--main-color-light);
+    background-color: var(--main-color);
+}
+
+/* *********************************************************************************************************************
+***                                                      ASIDE                                                       ***
+********************************************************************************************************************* */
+aside {
+    width: 100%;
+    background-color: var(--main-color-light);
+}
+
+.sidebar {
+    margin: 0.5em;
+}
+
+.sidebar__group {
+    margin-bottom: var(--m-gap);
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.sidebar__element, .sidebar__element a {
+    line-height: 1.2em;
+}
+
+.sidebar__element a {
+    display: block;
+    border-left: 3px solid transparent;
+    padding: var(--xs-gap) var(--s-gap);
+    color: var(--main-color);
+}
+
+.sidebar__element a:hover {
+    border-color: var(--main-color);
+}
+
+.sidebar__element:active > a {
+    background-color: var(--main-color);
+    color: var(--main-color-light);
+}
+
+/* *********************************************************************************************************************
+***                                                      MAIN                                                        ***
+********************************************************************************************************************* */
+main section {
+    margin: 20px 50px;
+}
+
+main h2 {
+    font-size: var(--secondary-title-size);
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    font-weight: bold;
+    margin-bottom: var(--s-gap);
+}
+
+main p, main li {
+    text-align: justify;
+}
+
+main p {
+    text-indent: var(--xl-gap);
+}
+
+.download {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.bi-file-earmark-pdf {
+    color: red;
+    font-size: var(--main-title-size);
+    border: 2px solid transparent;
+}
+
+.bi-file-earmark-pdf:hover {
+    border-color: red;
+}
+
+.bi-file-earmark-pdf:active {
+    color: white;
+    background-color: red;
+}
+
+.layout {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--m-gap);
+}
+
+.layout__video {
+    flex: 0 0 clamp(150px, 20vw, 250px);
+    margin: auto;
+}
+
+.layout__video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.layout__text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+ol {
+    font-weight: bold;
+}
+
+ol > li, h3 {
+    font-family: var(--title-font);
+    font-weight: bold;
+}
+
+h3 {
+    margin-bottom: var(--s-gap);
+}
+
+h2 span, h3 span, .sidebar__element a span {
+    font-family: var(--code-font);
+}
+
+.separator {
+    border: 0.1rem solid var(--main-color-light);
+    margin: var(--m-gap);
+}
+
+.layout__text table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.layout__text table td {
+    border: 1px solid black;
+    min-width: 3em;
+    text-align: center;
+    padding: 0 0.3rem;
+}
+
+/* *********************************************************************************************************************
+***                                          LAYOUT__TEXT CONTENT                                                    ***
+********************************************************************************************************************* */
+.layout__text pre {
+    margin: var(--s-gap) 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.layout__text code {
+    font-size: var(--code-size);
+    line-height: var(--small-line-height);
+    display: inline-block;
+    min-width: 100%;
+    padding-left: var(--s-gap);
+    box-sizing: border-box;
+}
+
+.layout__text .python {
+    background-color: var(--python-light);
+    border-left: 0.3rem solid var(--python);
+}
+
+.layout__text .html {
+    background-color: var(--html-light);
+    border-left: 0.3rem solid var(--html);
+}
+
+.layout__text .css {
+    background-color: var(--css-light);
+    border-left: 0.3rem solid var(--css);
+}
+
+.layout__text .js {
+    background-color: var(--js-light);
+    border-left: 0.3rem solid var(--js);
+}
+
+.layout__text span {
+    color: var(--comment-color);
+}
+
+.layout__text img {
+    display: block;
+    margin: auto;
+}
+
+.layout__text ul > li {
+    list-style: disc outside;
+    margin-left: 1.4rem;
+}
+
+.layout__text li span, .layout__text p span, .navbar a span, .layout__text td span, .step span.comment {
+    font-size: var(--code-size);
+    font-family: var(--code-font);
+}
+
+.layout__text ul ul > li {
+    list-style: circle outside;
+    margin-left: 1.4rem;
+}
+
+.layout__text a {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.layout__text a:hover {
+    text-decoration: underline;
+}
+
+.layout__text a:active {
+    background-color: var(--main-color-light);
+}
+
+.layout__text span.comment, .step span.comment {
+    color: var(--comment-color);
+}
+
+.layout__text span.text {
+    color: var(--text-color);
+}
+
+.layout__text span.number {
+    color: var(--number-color);
+}
+
+.layout__text span.word {
+    color: var(--word-color);
+}
+
+.layout__text span.function {
+    color: var(--function-color);
+}
+
+.layout__text span.error {
+    color: var(--error-color);
+}
+
+/* *********************************************************************************************************************
+***                                                     FOOTER                                                       ***
+********************************************************************************************************************* */
+.steps {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.step {
+    list-style: decimal inside;
+    padding-left: 1.2rem;
+    font-size: var(--text-size);
+    font-family: var(--text-font);
+    font-weight: normal;
+    flex: 1 1 45%;
+    position: relative;
+    padding-bottom: 170px;
+    max-width: 45%;
+}
+
+.step > span {
+    display: contents;
+}
+
+.step video {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 160px;
+}
+
+/* *********************************************************************************************************************
+***                                                     FOOTER                                                       ***
+********************************************************************************************************************* */
+footer {
+    background-color: var(--main-color);
+    color: var(--main-color-light);
+}
+
+footer div {
+    text-align: center;
+    margin: var(--m-gap);
+    font-size: var(--small-text-size);
+}

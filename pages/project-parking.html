@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Projet Parking</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Projet : le parking</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2 class="aside-h2">Dans cette page</h2>
+                <ul class="aside-list">
+                    <li class="sidebar__element">
+                        <a href="#questions">Énoncé</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#help">Conseils de réalisation</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#solution">Solution</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="questions">
+            <h2>Énoncé</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Une entreprise vous sollicite pour créer une application qui permettrait de gérer l'occupation
+                        de places de parking. Vous devez respecter le cahier des charges.
+                    </p>
+
+                    <div class="separator"></div>
+
+                    <ol>
+
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Format des données</h3>
+                            <ul>
+                                <li>La classe<span class="comment"> Place </span>: chaque place de parking est caractérisée par son numéro d'emplacement et son statut (libre ou occupé) ; une place peut changer de statut.</li>
+                                <li>La classe<span class="comment"> Voiture </span>: chaque voiture est caractérisée par une plaque d'immatriculation et la place qu'elle occupe ; elle peut se garer ou partir.</li>
+                                <li>Les places de parking seront stockées dans un tuple.</li>
+                                <li>Les clients seront stockés dans une liste.</li>
+                            </ul>
+                        </li>
+
+                        <div class="separator"></div>
+
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Fonctionnement</h3>
+                            <ul>
+                                <li>Le parking comporte 5 places.</li>
+                                <li>Lorsque l'utilisateur lance le programme, il accède à un menu, qui permet de :
+                                    <ul>
+                                        <li>afficher le nombre de places libres.</li>
+                                        <li>afficher les plaques d'immatriculation des voitures garées.</li>
+                                        <li>faire entrer une voiture et la garer à une place libre aléatoire.</li>
+                                        <li>faire sortir une voiture.</li>
+                                    </ul>
+                                </li>
+                                <li>L'application gère les erreurs ou les anticipe avec des messages adaptés :
+                                    <ul>
+                                        <li>un véhicule cherche à occuper une deuxième place.</li>
+                                        <li>un véhicule non stationné cherche à sortir.</li>
+                                        <li>un véhicule cherche à stationner sur une place déjà occupée.</li>
+                                    </ul>
+                                </li>
+                                <li>L'application fonctionne tant que l'utilisateur n'a pas demandé à en sortir.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="help">
+            <h2>Conseils de réalisation</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Créer la classe<span class="comment"> Place</span>, avec les attributs<span class="comment"> numero </span>et<span class="comment"> occupee </span>, et la méthode<span class="comment"> changer_occupation()</span>.</li>
+                        <li>Créer la classe<span class="comment"> Voiture </span>avec les attributs<span class="comment"> plaque </span>et<span class="comment"> place</span>, et les méthodes<span class="comment"> garer() </span>et<span class="comment"> sortir()</span>.</li>
+                        <li>Créer les méthodes<span class="comment"> __str__ </span>de ces deux classes.</li>
+                        <li>Créer un parking de 5 places vides, numérotées de 1 à 5. Stocker ces données dans le tuple<span class="comment"> parking</span>.</li>
+                        <li>Créer une liste<span class="comment"> voitures</span>, vide pour l'instant.</li>
+                        <li>Créer les fonctions associées au menu :<span class="comment"> afficher_places_libres()</span>,<span class="comment"> afficher_voitures()</span>,<span class="comment"> garer_voiture()</span>,<span class="comment"> sortir_voiture()</span>.</li>
+                        <li>Pour garer la voiture à une place libre aléatoire :
+                            <ul class="sub-list">
+                                <li>importer le module<span class="comment"> random</span>.</li>
+                                <li>déterminer la place avec<span class="comment"> random.choice()</span>. Voir la
+                                    <a target="_blank"
+                                       href="https://docs.python.org/fr/3/"
+                                       rel="noopener noreferrer"
+                                    >documentation</a>.</li>
+                            </ul>
+                        </li>
+                        <li>Créer le menu (interface "agréable", claire et lisible).</li>
+                        <li>Boucler jusqu'à ce que l'utilisateur le décide.</li>
+                        <li>Gérer les erreurs de saisie utilisateur :
+                            <ul>
+                                <li>l'utilisateur saisit une plaque d'immatriculation vide.</li>
+                                <li>l'utilisateur essaie de garer une voiture déjà existante dans le parking.</li>
+                                <li>l'utilisateur essaie de garer une voiture sur un parking plein.</li>
+                                <li>l'utilisateur essaie de sortir une voiture qui n'est pas sur le parking.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="solution">
+            <h2>Solution</h2>
+            <div class="layout">
+
+            <ol class="steps">
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Implémentation de la classe<span class="comment"> Place</span>, avec sa méthode<span class="comment"> __str__()</span>.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution1.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Implémentation de la classe<span class="comment"> Voiture</span>, avec sa méthode<span class="comment"> __str__()</span>.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution2.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Initialisation du parking et des voitures.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution3.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Implémentation des fonctions du menu.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution4.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Utilisation de<span class="comment"> random.choice()</span>.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution5.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Création du menu.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution6.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Gestion du fonctionnement en boucle (boucle infinie et arrêt).</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution7.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Anticipation et gestion des erreurs utilisateur.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution8.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Manipulation de variables</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Manipulation de variables</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#calculate">Calculer en Python</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#input">Récupérer une saisie utilisateur</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#type">Changer le type d'une variable</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="calculate">
+            <h2>Calculer en Python</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Python est un excellent calculateur. Il réalise de nombreuses opérations mathématiques avec les
+                        symboles suivants (les priorités sont les mêmes qu'en mathématiques) :
+                    </p>
+                    <table>
+                        <tr>
+                            <td>addition</td>
+                            <td><span class="comment">+</span></td>
+                            <td><span class="comment">5 + 2</span></td>
+                            <td><span class="comment">7</span></td>
+                        </tr>
+                        <tr>
+                            <td>soustraction</td>
+                            <td><span class="comment">-</span></td>
+                            <td><span class="comment">5 - 2</span></td>
+                            <td><span class="comment">3</span></td>
+                        </tr>
+                        <tr>
+                            <td>multiplication</td>
+                            <td><span class="comment">*</span></td>
+                            <td><span class="comment">5 * 2</span></td>
+                            <td><span class="comment">10</span></td>
+                        </tr>
+                        <tr>
+                            <td>division</td>
+                            <td><span class="comment">/</span></td>
+                            <td><span class="comment">5 / 2</span></td>
+                            <td><span class="comment">2.5</span></td>
+                        </tr>
+                        <tr>
+                            <td>division (quotient entier)</td>
+                            <td><span class="comment">//</span></td>
+                            <td><span class="comment">5 // 2</span></td>
+                            <td><span class="comment">2</span></td>
+                        </tr>
+                        <tr>
+                            <td>division (reste)</td>
+                            <td><span class="comment">%</span></td>
+                            <td><span class="comment">5 % 2</span></td>
+                            <td><span class="comment">1</span></td>
+                        </tr>
+                        <tr>
+                            <td>puissance</td>
+                            <td><span class="comment">**</span></td>
+                            <td><span class="comment">5 ** 2</span></td>
+                            <td><span class="comment">25</span></td>
+                        </tr>
+
+                    </table>
+                    <pre class="python"><code><span class="function">print</span>(<span class="number">5</span> + <span class="number">2</span>)
+<span class="comment"># Python affiche 7</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/manipulate/calculate.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="input">
+            <h2>Récupérer une saisie utilisateur</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        On peut récupérer des données pour établir un "dialogue" entre l'ordinateur et
+                        l'utilisateur. Attention, la variable sera toujours de type<span class="comment"> str</span>.
+                    </p>
+                    <pre class="python"><code>age = <span class="function">input</span>(<span class="text">"Saisissez votre âge : "</span>)
+<span class="comment"># le texte permet de guider l'utilisateur</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/manipulate/input.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="type">
+            <h2>Changer le type d'une variable</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        La fonction<span class="comment"> input() </span>permet de récupérer une chaîne de caractères.
+                        Mais on peut avoir besoin de la convertir en nombre.
+                    </p>
+                    <pre class="python"><code>ma_variable_1 = <span class="function">int</span>(<span class="text">"32"</span>) <span class="comment">&nbsp;# renvoie le nombre entier 32</span>
+ma_variable_2 = <span class="function">float</span>(<span class="text">"37.5"</span>) <span class="comment">&nbsp;# renvoie le nombre décimal 37.5</span>
+ma_variable_3 = <span class="function">bool</span>(<span class="number">1</span>) <span class="comment">&nbsp;# renvoie le booléen True (pour 0, renvoie False)</span>
+ma_variable_4 = <span class="function">str</span>(<span class="number">32</span>) <span class="comment">&nbsp;# renvoie la chaîne de caractères "32"</span>
+ma_variable_5 = <span class="function">str</span>(<span class="number">10.23</span>) <span class="comment">&nbsp;# renvoie la chaîne de caractères "10.23"</span>
+ma_variable_6 = <span class="function">str</span>(<span class="word">False</span>) <span class="comment">&nbsp;# renvoie la chaîne de caractères "False"</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/manipulate/type.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            Calcul avec des variables de types différents (ex :<span class="comment"> "Coucou" + 3 </span>)
+                            :<span class="code error"> TypeError</span>.
+                         </li>
+                        <li>
+                            Conversion d'une chaîne de caractères en nombre (ex:<span class="comment"> int("abc")</span>)
+                            :<span class="code error"> ValueError</span>.
+                        </li>
+                        <li>
+                            Oubli du fait que<span class="comment"> input() </span>renvoie une chaîne de caractères
+                            :<span class="code error"> TypeError</span>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>a = 10
+b = 2
+c = a * b
+print(c)</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>note_1 = 14
+note_2 = 12
+note_3 = input("Note : ")
+
+moyenne = (note_1 + note_2 + note_3) / 3
+print("La moyenne est de {moyenne}")</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Demander à l'utilisateur de saisir 2 nombres entiers.</li>
+                                <li>Les stocker dans des variables.</li>
+                                <li>Les convertir en entiers.</li>
+                                <li>Calculer la somme de ces deux nombres et stocker le résultat dans une variable.</li>
+                                <li>Afficher le résultat avec le calcul, par exemple : "<span class="comment">5 + 3 = 8</span>".</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/manipulate/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

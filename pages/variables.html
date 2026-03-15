@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Variables</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les variables</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#declare">Déclarer une variable</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#call">Appeler une variable</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#main-types">Principaux types de variables</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="declare">
+            <h2>Déclarer une variable</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Les variables sont des boîtes, avec une étiquette (leur nom), et qui contiennent une donnée.
+                        On les nomme en snake_case.
+                    </p>
+                    <p>Dans les lignes ci-dessous, les textes en clair sont des commentaires.</p>
+                    <ul>
+                        <li>Pour un nombre entier :
+                            <pre class="python"><code>ma_variable_1 = <span class="number">3</span>
+<span class="comment"># la variable a pour valeur le nombre entier 3</span></code></pre>
+                        </li>
+                        <li>Pour un nombre décimal :
+                            <pre class="python"><code>ma_variable_2 = <span class="number">3.14</span>
+<span class="comment"># la variable a pour valeur le nombre 3.14</span></code></pre>
+                        </li>
+                        <li>Pour une chaîne de caractères :
+                            <pre class="python"><code>ma_variable_3 = <span class="text">"mon prénom"</span>
+<span class="comment"># la variable a pour valeur le texte "mon prénom"</span></code></pre>
+                        </li>
+                        <li>Pour un booléen :
+                            <pre class="python"><code>ma_variable_4 = <span class="word">True</span>
+<span class="comment"># la variable a pour valeur True</span></code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/variables/declare.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="call">
+            <h2>Appeler une variable</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On utilise une variable créée plus haut.</p>
+                    <ul>
+                        <li>On peut faire des calculs :
+                            <pre class="python"><code>somme = ma_variable_1 + ma_variable_2
+<span class="comment"># calcul d'une somme, stockage dans une autre variable</span></code></pre>
+                        </li>
+                        <li>On peut afficher un résultat :
+                            <pre class="python"><code><span class="function">print</span>(somme)
+<span class="comment"># on affiche le résultat brut</span></code></pre>
+                        </li>
+                        <li>On peut utiliser des chaînes de caractères formatées, ou<span class="comment"> f-string</span>.
+                            Une<span class="code comment"> f-string </span>est une chaîne de caractères qui comporte
+                            une variable.
+                            <pre class="python"><code>montant = <span class="number">250</span>
+<span class="function">print</span>(<span class="text">f"Votre compte est crédité de {montant} €"</span>)</code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/variables/call.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="main-types">
+            <h2>Principaux types de variables</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Les variables ont un type donné. Chaque type est utilisable d'une façon qui lui est propre.</p>
+                    <ul>
+                        <li>Pour connaître le type d'une variable, on peut taper la commande :
+                            <pre class="python"><code><span class="function">print</span>(<span class="function">type</span>(ma_variable))
+<span class="comment"># on affiche le type de la variable</span></code></pre>
+                        </li>
+                        <li>Un nombre entier est de type<span class="comment"> int</span>.</li>
+                        <li>Un nombre décimal est de type<span class="comment"> float</span>.</li>
+                        <li>Une chaîne de caractères est de type<span class="comment"> str</span>.</li>
+                        <li>Un booléen est de type<span class="comment"> bool</span>. Il peut prendre la
+                            valeur<span class="comment"> True </span>ou<span class="comment"> False</span>.</li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/variables/main-types.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Oubli des<span class="comment"> "" </span>dans une chaîne de caractères :<span class="code error"> SyntaxError</span>.</li>
+                        <li>
+                            Oubli des<span class="comment"> () </span>de<span class="comment"> print() </span>
+                            :<span class="code error"> SyntaxError</span>.
+                        </li>
+                        <li>
+                            Oubli de<span class="comment"> f </span>ou des<span class="comment"> {} </span>dans
+                            une<span class="comment"> f-string </span>:<span class="error"> comportement anormal</span>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>print("Hello")
+print("Python")</code></pre>
+                            <ul>
+                                <li>message d'erreur</li>
+                                <li><span class="comment">Hello Python</span></li>
+                                <li><span class="comment">Hello<br>
+Python</span></li>
+                                <li><span class="comment">Hello</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>print(Bienvenue en Python")
+print Bien joué !</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer une variable contenant votre prénom, et une autre contenant votre âge.</li>
+                                <li>
+                                    Afficher un message du type : "<span class="comment">Bonjour Paul, vous avez
+                                    18 ans.</span>" en utilisant les<span class="comment"> f-string</span>.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/variables/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

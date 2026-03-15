@@ -1,0 +1,81 @@
+{	"home": {
+		"id": "navbar__home",
+		"target": "index",
+		"icon": "bi bi-house-fill",
+		"text": "Accueil"
+	},
+	"menu": [
+		{
+			"title": "Concepts de base",
+			"subMenu": [
+				{
+					"tag": "variables",
+					"text": "Variables"
+				},
+				{
+					"tag": "manipulate",
+					"text": "Manipulation de variables"
+				},
+				{
+					"tag": "conditions",
+					"text": "Structures conditionnelles"
+				},
+				{
+					"tag": "loops",
+					"text": "Boucles"
+				},
+				{
+					"tag": "project-calc",
+					"text": "Projet : la calculatrice"
+				}
+			]
+		},
+		{
+			"title": "Concepts intermédiaires",
+			"subMenu": [
+				{
+					"tag": "lists",
+					"text": "Listes"
+				},
+				{
+					"tag": "tuples",
+					"text": "Tuples"
+				},
+				{
+					"tag": "strings",
+					"text": "Manipulation de chaînes de caractères"
+				},
+				{
+					"tag": "functions",
+					"text": "Fonctions"
+				},
+				{
+					"tag": "dictionnaries",
+					"text": "Dictionnaires"
+				},
+				{
+					"tag": "project-customer",
+					"text": "Projet : Le fichier client"
+				}
+			]
+		},
+		{
+			"title": "Concepts avancés",
+			"subMenu": [
+				{
+					"tag": "classes",
+					"text": "Classes"
+				},
+				{
+					"tag": "errors",
+					"text": "Gestion des erreurs"
+				},
+				{
+					"tag": "project-stocks",
+					"text": "Projet : Le parking"
+				}
+			]
+		}
+	]
+}
+

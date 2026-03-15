@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Listes</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les listes</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#create">Créer une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#add">Ajouter un élément dans une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#find">Trouver un élément dans une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#delete">Supprimer un élément d'une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#length">Connaître la longueur d'une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#sort">Trier une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#browse">Parcourir une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="create">
+            <h2>Créer une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            On peut créer une liste vide pour la compléter par la suite ; on utilise les<span class="comment"> [] </span>:
+                            <pre class="python"><code>liste_vide = []</code></pre>
+                        </li>
+                        <li>
+                            On peut aussi créer une liste qui contient déjà des éléments :
+                            <pre class="python"><code>ingredients = [<span class="text">"farine"</span>, <span class="text">"sucre"</span>, <span class="text">"lait"</span>]</code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/create.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="add">
+            <h2>Ajouter un élément dans une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Le nouvel élément est toujours ajouté à la fin de la liste.</p>
+                    <pre class="python"><code>ingredients.<span class="function">append</span>(<span class="text">"oeufs"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/add.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="find">
+            <h2>Trouver un élément dans une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            Pour récupérer la position d'un élément dans une liste (son index) :
+                            <pre class="python"><code>ingredients = [<span class="text">"farine"</span>, <span class="text">"sucre"</span>, <span class="text">"lait"</span>, <span class="text">"oeufs"</span>]
+numero = ingredients.<span class="function">index</span>(<span class="text">"sucre"</span>)
+<span class="comment"># les index commencent à 0, donc le "sucre" est à l'index 1 : les index sont 0 ; 1 ; 2 ; 3. Ici, numero prendra la valeur 1.</span></code></pre>
+                        </li>
+                        <li>
+                            Pour récupérer le 3<sup>ème</sup> élément dans la liste :
+                            <pre class="python"><code>element = ingredients[<span class="number">2</span>]
+<span class="comment"># les index commencent à 0. Ici, element prendra la valeur "lait"</span></code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/find.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="delete">
+            <h2>Supprimer un élément d'une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>
+                            Ce code efface complètement l'élément sélectionné</span>:
+                            <pre class="python"><code>ingredients = [<span class="text">"farine"</span>, <span class="text">"sucre"</span>, <span class="text">"lait"</span>, <span class="text">"oeufs"</span>]
+ingredients.<span class="function">remove</span>(<span class="text">"lait"</span>)</code></pre>
+                        </li>
+                        <li>
+                            Ce code permet de stocker l'élément supprimé dans une variable :
+                            <pre class="python"><code>ingredients = [<span class="text">"farine"</span>, <span class="text">"sucre"</span>, <span class="text">"oeufs"</span>]
+element = ingredients.<span class="function">pop</span>(<span class="number">1</span>) <span class="comment">&nbsp;# dans notre cas, element sera égal à sucre</span></code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/delete.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="length">
+            <h2>Connaître la longueur d'une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Cela peut être utile de connaître le nombre d'éléments dans une liste.</p>
+                    <pre class="python"><code>ingredients = [<span class="text">"farine"</span>, <span class="text">"sucre"</span>, <span class="text">"oeufs"</span>]
+<span class="function">len</span>(ingredients) <span class="comment">&nbsp;# renvoie 3</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/length.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="sort">
+            <h2>Trier une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Dans une liste de nombre, le tri est croissant. Dans une liste de chaînes, le tri est alphabétique.</p>
+                    <pre class="python"><code>ingredients.<span class="function">sort</span>()</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/sort.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="browse">
+            <h2>Parcourir une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On réalise une boucle sur la liste, et chaque élément de la liste sera traité indépendamment.</p>
+                    <pre class="python"><code><span class="word">for</span> element <span class="word">in</span> ingredients: <span class="comment">&nbsp;# pour chaque élément de la liste "ingredients"</span>
+    <span class="function">print</span>(element) <span class="comment">&nbsp;# affiche l'élément</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/lists/browse.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Oubli des<span class="comment"> [] </span>dans une liste :<span class="code error"> SyntaxError</span>.</li>
+                        <li>Oubli des<span class="comment"> , </span>de séparation :<span class="code error"> SyntaxError</span> ou <span class="error">comportement anormal</span>.</li>
+                        <li>Utilisation d'un index trop grand :<span class="code error"> IndexError</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>n = [3, 6, 9, 12]
+x = n.pop(1)
+print(x)
+print(n)</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>l = [4, 7, 1]
+l.sort
+print(l(0))</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer une liste de toutes les matières enseignées au collège.</li>
+                                <li>Afficher la liste.</li>
+                                <li>Ajouter les options proposées au collège à la liste.</li>
+                                <li>Afficher la liste.</li>
+                                <li>Trier les matières par ordre alphabétique.</li>
+                                <li>Afficher la liste.</li>
+                                <li>Enlever les matières que vous ne pratiquez pas.</li>
+                                <li>Afficher le nombre de matières que vous pratiquez.</li>
+                                <li>Afficher les matières une par une.</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/lists/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

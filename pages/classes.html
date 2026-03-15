@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Classes</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les classes</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#create">Créer une classe</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#instance">Créer une instance à partir d'une classe</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#attributes">Utiliser les attributs d'une instance</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#methods">Utiliser les méthodes d'une instance</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#init">La méthode spéciale constructeur :<span> __init__</span></a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#str">La méthode spéciale d'optimisation de lisibilité :<span> __str__</span></a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="create">
+            <h2>Créer une classe</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Une classe est un modèle qui permet de créer des objets (un peu comme un plan). On peut créer
+                        plusieurs objets de la même classe. Imaginons la classe<span class="comment"> Personnage</span>.
+                        Chaque personnage a un nom, un âge, ... : ce sont ses attributs. Il peut aussi faire des
+                        choses : parler, ... : ce sont ses méthodes. Créer la classe<span class="comment"> Personnage</span>
+                        équivaut à concevoir un plan pour créer n'importe quel personnage. Tous les personnages
+                        ainsi créés auront les mêmes attributs, avec des valeurs différentes, et les mêmes méthodes.
+                        On nomme une classe en PascalCase.
+                    </p>
+                    <pre class="python"><code><span class="word">class</span> Personnage:
+    <span class="word">def</span> <span class="function">__init__</span>(<span class="function">self</span>, nom, age): <span class="comment">&nbsp;# la méthode constructeur ; il faut lui donner deux paramètres</span>
+        <span class="function">self</span>.nom = nom <span class="comment">&nbsp;# l'attribut nom ; on lui affecte la valeur du paramètre nom</span>
+        <span class="function">self</span>.age = age <span class="comment">&nbsp;# l'attribut age ; on lui affecte la valeur du paramètre age</span>
+
+    <span class="word">def</span> <span class="function">parler</span>(<span class="function">self</span>): <span class="comment">&nbsp;# la méthode parler</span>
+        <span class="function">print</span>(<span class="text">f"Bonjour, je m'appelle {self.nom}"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/create.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="instance">
+            <h2>Créer une instance à partir d'une classe</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        On peut créer un grand nombre d'objets à partir de la classe : on parle d'instances de la
+                        classe. Ici,<span class="comment"> perso_1 </span>et<span class="comment"> perso_2 </span> sont
+                        deux instances de la classe<span class="comment"> Personnage</span>. Pour créer une instance,
+                        il faut passer une valeur par paramètre de la méthode<span class="comment"> __init__</span>.
+                    </p>
+                    <pre class="python"><code>perso_1 = Personnage(<span class="text">"Luke"</span>, <span class="number">25</span>) <span class="comment">&nbsp;# on passe des valeurs au paramètre du constructeur</span>
+perso_2 = Personnage(<span class="text">"Yoda"</span>, <span class="number">163</span>) <span class="comment">&nbsp;# on crée une deuxième instance</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/instance.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="attributes">
+            <h2>Utiliser les attributs d'une instance</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Chaque instance est accessible par son nom de variable (ici,<span class="comment"> perso_1 </span>
+                        et<span class="comment"> perso_2</span>).
+                    </p>
+                    <pre class="python"><code><span class="function">print</span>(perso_1.nom) <span class="comment">&nbsp;# affiche "Luke"</span>
+<span class="function">print</span>(perso_2.nom) <span class="comment">&nbsp;# affiche "Yoda"</span>
+<span class="function">print</span>(perso_1.age) <span class="comment">&nbsp;# affiche "25"</span>
+<span class="function">print</span>(perso_2.age) <span class="comment">&nbsp;# affiche "163"</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/attributes.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="methods">
+            <h2>Utiliser les méthodes d'une instance</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        On peut considérer que les méthodes sont des fonctions, mais uniquement valables pour les
+                        instances de la classe. Toutes les méthodes prennent<span class="comment"> self </span> comme
+                        premier paramètre. Dans le code, il n'est pas nécessaire de le fournir lors de l'appel
+                        d'une méthode.
+                    </p>
+                    <pre class="python"><code>perso_1.<span class="function">parler</span>() <span class="comment">&nbsp;# affiche "Bonjour, je m'appelle Luke"</span>
+perso_2.<span class="function">parler</span>() <span class="comment">&nbsp;# affiche "Bonjour, je m'appelle Yoda"</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/methods.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="init">
+            <h2>La méthode spéciale constructeur :<span> __init__</span></h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Cette méthode est appelée au moment de l'initialisation de l'instance. C'est pour cela qu'il
+                        faut lui apporter les paramètres nécessaires pour qu'elle puisse affecter les valeurs voulues
+                        aux attributs de l'instance. Au moment de l'appel de cette méthode, les paramètres prennent
+                        les valeurs indiquées.
+                    </p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/init.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="str">
+            <h2>La méthode spéciale d'optimisation de lisibilité :<span> __str__</span></h2>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout">
+                <div class="layout__text">
+                    <p>Par défaut, un<span class="comment"> print() </span>d'une instance affiche quelque chose de peu lisible.</p>
+                    <pre class="python"><code><span class="function">print</span>(perso_1) <span class="comment">&nbsp;# affiche &lt;__main__.Personnage object at 0x00000211175B6F90&gt;</span></code></pre>
+                    <p>Pour éviter cela, on crée la méthode<span class="comment"> __str__</span>.</p>
+                    <pre class="python"><code><span class="word">class</span> Personnage:
+    <span class="word">def</span> <span class="function">__init__</span>(<span class="function">self</span>, nom, age):
+        ...
+
+    <span class="word">def</span> <span class="function">__str__</span>(<span class="function">self</span>):
+        <span class="function">return <span class="text">f"{self.nom}, {self.age} ans."</span></span></code></pre>
+                    <p>Ensuite, on peut refaire un<span class="comment"> print()</span>.</p>
+                    <pre class="python"><code><span class="function">print</span>(perso_1) <span class="comment">&nbsp;# affiche "Luke, 25 ans"</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/classes/str.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Oublier<span class="comment"> self </span>:<span class="code error"> TypeError</span>.</li>
+                        <li>Oublier les<span class="comment"> () </span> avec une méthode : <span class="error">comportement anormal</span>.</li>
+                        <li>Confondre un attribut d'instance avec une variable "standard" : <span class="error">comportement anormal</span>.</li>
+                        <li>Mal orthographier<span class="comment"> __init__ </span>ou<span class="comment"> __str__ </span>:<span class="code error"> TypeError </span>ou <span class="error">comportement anormal</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>class Voiture:
+    def __init__(self, marque, modele, annee):
+        self.marque = marque
+        self.modele = modele
+        self.annee = annee
+
+    def __str__(self):
+        return f"{self.marque} {self.modele} - {self.annee}"
+
+    def demarrer(self):
+        print(f"{self.marque} {self.modele} démarre.")
+
+v1 = Voiture("Renault", "Twingo", 2023)
+print(v1)
+v1.demarrer()</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>class Robot:
+    def init(self, nom):
+        self.nom = nom
+
+    def parler()
+        print("Bonjour, je suis {nom}")
+
+r = Robot("R2-D2")
+r.parler</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer une classe Rectangle avec deux attributs (longueur, largeur) et deux méthodes (aire, périmètre).</li>
+                                <li>Créer deux instances, une de dimensions 3 × 8 et l'autre de dimension 5 × 6.</li>
+                                <li>Afficher le périmètre et l'aire des deux instances.</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/classes/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

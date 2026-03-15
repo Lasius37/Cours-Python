@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Gestion des erreurs</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>La gestion des erreurs</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#definition">Principe général</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#types">Types d'erreurs fréquents</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#many">Gérer plusieurs types d'erreurs</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="definition">
+            <h2>Principe général</h2>
+            <div class="layout">
+                <div class="layout__text">
+                    <p>
+                        Lorsqu'un programme rencontre une erreur, Python s'arrête immédiatement. Ce comportement est
+                        à éviter : il faut faire en sorte que le programme puisse continuer. C'est le rôle des
+                        blocs<span class="comment"> try</span>/<span class="comment">except</span>.
+                    </p>
+                    <pre><code class="python"><span class="word">try</span>: <span class="comment">&nbsp;# Python essaie de suivre ces instructions</span>
+    x = <span class="function">int</span>(<span class="function">input</span>(<span class="text">"Nombre : "</span>))
+    <span class="function">print</span>(<span class="number">10</span> / x)
+<span class="word">except</span>: <span class="comment">&nbsp;# En cas d'erreur dans le bloc try, il suivra ces instructions</span>
+    <span class="function">print</span>(<span class="text">"Il y a une erreur."</span>)</code></pre>
+                </div>
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/errors/definition.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="types">
+            <h2>Types d'erreurs fréquents</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td><span class="error">ValueError</span></td>
+                            <td>Conversion impossible</td>
+                            <td><span class="comment">int("abc")</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="error">ZeroDivisionError</span></td>
+                            <td>Division par 0</td>
+                            <td><span class="comment">37 / 0</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code error">TypeError</span></td>
+                            <td>Mélange de types de variables incompatibles</td>
+                            <td><span class="comment">"abc" + 3</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code error">KeyError</span></td>
+                            <td>Clé inexistante dans un dictionnaire</td>
+                            <td><span class="comment">moyenne["japonais"]</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code error">IndexError</span></td>
+                            <td>Index trop grand dans une liste ou un tuple</td>
+                            <td><span class="comment">matieres[32]</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/errors/types.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="many">
+            <h2>Gérer plusieurs types d'erreurs</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Dans le bloc<span class="comment"> try</span>/<span class="comment">except </span> ci-dessous,
+                        il y a plusieurs causes d'erreur possible :
+                    </p>
+                    <ul>
+                        <li>L'utilisateur ne saisit pas un nombre (<span class="code error">ValueError</span>).</li>
+                        <li>L'utilisateur saisit 0 (<span class="code error">ZeroDivisionError</span>).</li>
+                    </ul>
+                    <p>Il est conseillé de gérer chaque type d'erreur indépendamment. On peut donc améliorer le code :</p>
+                    <pre><code class="python"><span class="word">try</span>: <span class="comment">&nbsp;# Python essaie de suivre ces instructions</span>
+    x = <span class="function">int</span>(<span class="function">input</span>(<span class="text">"Nombre : "</span>))
+    <span class="function">print</span>(<span class="number">10</span> / x)
+<span class="word">except</span> ValueError: <span class="comment">&nbsp;# En cas de conversion impossible, il suivra ces instructions</span>
+    <span class="function">print</span>(<span class="text">"Vous devez saisir un nombre."</span>)
+<span class="word">except</span> ZeroDivisionError: <span class="comment">&nbsp;# En cas d'erreur de division, il suivra ces instructions</span>
+    <span class="function">print</span>(<span class="text">"Il est impossible de diviser par 0."</span>)
+<span class="word">except</span>: <span class="comment">&nbsp;# En cas d'erreur d'un autre type, il suivra ces instructions</span>
+    <span class="function">print</span>(<span class="text">"Erreur inconnue."</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/errors/many.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Mauvais ordre dans les<span class="comment"> except </span>: <span class="error">comportement anormal</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre><code class="python">try:
+    n = int("toto")
+    print("OK")
+except ValueError:
+    print("Conversion impossible")</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre><code class="python">try:
+    print(10 / x)
+except:
+    print("Problème")
+except ZeroDivisionError:
+    print("Division Impossible")</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer un programme qui :
+                                    <ul class="sub-list">
+                                        <li>demande à l'utilisateur un nombre entier (le numérateur).</li>
+                                        <li>demande un second nombre entier (le diviseur).</li>
+                                        <li>affiche le quotient de la division.</li>
+                                    </ul>
+                                </li>
+                                <li>Anticiper les erreurs de manipulation du programme.</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/errors/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

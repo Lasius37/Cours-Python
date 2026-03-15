@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Projet Calculatrice</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Projet : la calculatrice</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#questions">Énoncé</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#help">Conseils de réalisation</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#solution">Solution</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="questions">
+            <h2>Énoncé</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Réaliser une calculatrice en Python. Votre programme devra respecter le cahier des charges ci-dessous :</p>
+
+                    <div class="separator"></div>
+
+                    <ol>
+
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Format des données</h3>
+                            <ul>
+                                <li>Les données sont stockées dans des variables.</li>
+                            </ul>
+                        </li>
+
+                        <div class="separator"></div>
+
+                        <!-- specifications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <li>
+                            <h3>Fonctionnement</h3>
+                            <ul>
+                                <li>L'utilisateur saisit un nombre, puis un signe opératoire, puis un autre nombre.</li>
+                                <li>L'ordinateur affiche le calcul et son résultat.</li>
+                                <li>L'utilisateur peut décider de faire autant de calculs qu'il le veut avant de quitter.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="help">
+            <h2>Conseils de réalisation</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Stocker les saisies utilisateur dans des variables aux noms explicites.</li>
+                        <li>Penser à convertir les nombres en<span class="comment"> float</span>.</li>
+                        <li>Coder une seule opération dans un premier temps (l'addition).</li>
+                        <li>Utiliser une<span class="comment"> f-string </span>pour afficher le résultat proprement.</li>
+                        <li>Envisager les 4 possibilités d'opérations avec une structure conditionnelle.</li>
+                        <li>Ajouter une boucle pour recommencer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="solution">
+            <h2>Solution</h2>
+
+            <ol class="steps">
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Stockage des saisies utilisateur dans des variables sous forme de décimaux.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution1.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage de l'addition et affichage du résultat soigné.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution2.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Codage des autres opérations.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution3.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+
+                <!-- step ------------------------------------------------------------------------------------------ -->
+                <li class="step">
+                    <span>
+                        <span>Ajout d'une boucle.</span>
+                        <video preload="none" controls controlsList="nodownload" preload="metadata">
+                            <source src="../assets/calc-project/solution4.mp4" type="video/mp4">
+                        </video>
+                    </span>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

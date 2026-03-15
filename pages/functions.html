@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Fonctions</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>Les fonctions</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#simple">Définir une fonction simple</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#parameters">Définir une fonction avec des paramètres</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#return">Récupérer le résultat d'une fonction</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#call">Appeler une fonction</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#errors">Erreurs fréquentes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exercises">Exercices</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="simple">
+            <h2>Définir une fonction simple</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Les fonctions ont pour but de réaliser une série de tâches. On les nomme en snake_case.</p>
+                    <pre class="python"><code><span class="word">def</span> <span class="function">dire_bonjour</span>(): <span class="comment">&nbsp;# initialisation de la fonction</span>
+    <span class="function">print</span>(<span class="text">"Bonjour !"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/functions/simple.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="parameters">
+            <h2>Définir une fonction avec des paramètres</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>La fonction réalise une série de tâches, mais qui dépendent de paramètres qu'on lui donne.</p>
+                    <pre class="python"><code><span class="word">def</span> <span class="function">dire_bonjour_nom</span>(nom): <span class="comment">&nbsp;# nom est un paramètre à donner à la fonction</span>
+    <span class="function">print</span>(<span class="text">f"Bonjour, {nom} !"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/functions/parameters.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="return">
+            <h2>Récupérer le résultat d'une fonction</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Quand on veut récupérer le résultat d'une fonction dans une variable, on utilise le mot<span class="comment"> return</span>.</p>
+                    <pre class="python"><code><span class="word">def</span> <span class="function">test_temperature</span>(valeur):
+    <span class="word">if</span> valeur <= <span class="number">0</span>:
+        message =  <span class="text">"il gèle !"</span>
+    <span class="word">else</span>:
+        message = <span class="text">"il ne gèle pas"</span>
+    <span class="word">return</span> message <span class="comment">&nbsp;# la fonction renvoie une valeur grâce à return</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/functions/return.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="call">
+            <h2>Appeler une fonction</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Nous avons déjà appelé des fonctions : <span class="comment"> input()</span>,<span class="comment"> print()</span>,<span class="comment"> type()</span>... sont des fonctions. Les trois fonctions ci-dessus sont appelées successivement.</p>
+                    <pre class="python"><code><span class="function">dire_bonjour</span>()
+
+<span class="function">dire_bonjour_nom</span>(<span class="text">"Toto"</span>)
+
+reponse = <span class="function">test_temperature</span>(<span class="number">14.5</span>)
+<span class="function">print</span>(reponse)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video preload="none" controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/functions/call.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="errors">
+            <h2>Erreurs fréquentes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <ul>
+                        <li>Oubli des<span class="comment"> () </span>en appelant la fonction :<span class="code error"> SyntaxError</span>.</li>
+                        <li>Mauvaise gestion des indentations :<span class="code error"> IndentationError</span>.</li>
+                        <li>Mauvaise gestion des paramètres donnés :<span class="code error"> TypeError</span>.</li>
+                        <li>Oubli de<span class="comment"> return </span>: <span class="error">comportement anormal</span>.</li>
+                        <li>Confusion<span class="comment"> print</span>/<span class="comment">return </span>dans une fonction : <span class="error">comportement anormal</span>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exercises">
+            <h2>Exercices</h2>
+            <ol>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>def calc(x):
+    return x + 3
+
+print(calc(7))</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <pre class="python"><code>def triple x:
+return x*3
+
+y = triple(4
+print(y)
+</code></pre>
+                        </div>
+                    </div>
+                </li>
+
+                <div class="separator"></div>
+
+                <!-- exercise -------------------------------------------------------------------------------------- -->
+                <li>
+                    <h3>Écrire du code : coder le programme suivant.</h3>
+                    <div class="layout">
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__text">
+                            <ul>
+                                <li>Créer une fonction qui renvoie le carré et le cube d'un nombre (sous forme de tuple).</li>
+                            </ul>
+                        </div>
+
+                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
+                        <div class="layout__video">
+                            <video preload="none" controls controlsList="nodownload" preload="metadata">
+                                <source src="../assets/functions/ex3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>
