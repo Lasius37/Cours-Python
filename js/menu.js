@@ -1,6 +1,7 @@
-import { MENU_DATA_FILE, PAGES, ROOT } from "./constants.js";
+import { MENU_DATA_FILE, PAGES, ROOT, NAVBAR_CONFIG, SIDEBAR_CONFIG } from "./constants.js";
 
-// Récupère le contenu du menu dans le fichier .json
+
+// charge les données du menu dans le fichier .json --------------------------------------------------------------------
 const loadMenuData = async () => {
     const response = await fetch(MENU_DATA_FILE);
 
@@ -12,84 +13,119 @@ const loadMenuData = async () => {
     return data;
 };
 
-// Génère le menu complet
-export const generateMenu = async () => {
-    // données nécessaires (élément + contenu du menu)
-    const navBar = document.querySelector(".navbar");
-    const menuData = await loadMenuData();
 
-    // fragment à intégrer (= groupe d'éléments)
-    const fragment = document.createDocumentFragment();
+// Crée un élément HTML ------------------------------------------------------------------------------------------------
+const createElement = (tag, className="", text="") => {
+    const element = document.createElement(tag);
 
-    // accueil
-    const homeMenu = generateHome(menuData.home);
-    fragment.appendChild(homeMenu);
+    if (className) {element.className = className};
 
-    // chaque sous-menu
-    for (const subMenuData of menuData.menu) {
-        const subMenu = generateSubMenu(subMenuData);
-        fragment.appendChild(subMenu);
-    }
+    if (text) {element.textContent = text};
 
-    // injection du fragment
-    navBar.appendChild(fragment);
+    return element;
 };
 
-// Génère le bouton Accueil
-export const generateHome = (homeData) => {
-    // conteneur li.navbar__element
-    const homeMenu = document.createElement("li");
-    homeMenu.classList.add("navbar__element");
 
-    // lien #navbar__home href=index.html
+// Crée un lien HTML ---------------------------------------------------------------------------------------------------
+const createLink = (href, text) => {
+    const link = document.createElement("a");
+    link.href = href;
+    link.textContent = text;
+    return link;
+};
+
+
+// Génère un groupe de menu --------------------------------------------------------------------------------------------
+const generateGroup = (menuData, config) => {
+    const {
+        containerTag,
+        containerClass,
+        titleTag,
+        listTag,
+        listClass,
+        itemTag,
+        itemClass
+    } = config;
+
+    const container = createElement(containerTag, containerClass);
+    const title = createElement(titleTag, "", menuData.title);
+    const subContainer = createElement(listTag, listClass);
+
+    for (const subMenu of menuData.subMenu) {
+        const item = createElement(itemTag, itemClass);
+        const link = createLink(`${PAGES}${subMenu.tag}.html`, subMenu.text);
+
+        item.appendChild(link);
+        subContainer.appendChild(item);
+
+        container.appendChild(title);
+        container.appendChild(subContainer);
+    }
+
+    return container;
+};
+
+
+// Génère une liste de groupes dans un conteneur -----------------------------------------------------------------------
+const generateStructure = (selector, dataList, generator) => {
+    const container = document.querySelector(selector);
+    if (!container) return;
+
+    const fragment = document.createDocumentFragment();
+
+    for (const data of dataList) {
+        fragment.appendChild(generator(data));
+    };
+
+    container.appendChild(fragment);
+};
+
+
+// Génère le bouton Accueil --------------------------------------------------------------------------------------------
+const generateHome = (homeData) => {
+    const homeMenu = createElement("li", "navbar__element");
+
     const homeLink = document.createElement("a");
     homeLink.id = homeData.id;
-    homeLink.href = `${ROOT}${homeData.target}.html`
+    homeLink.href = `${ROOT}${homeData.target}.html`;
 
-    // icone Bootstrap
     const homeIcon = document.createElement("i");
     homeIcon.classList = homeData.icon;
 
-    // montage du bloc html
     const textNode = document.createTextNode(homeData.text);
 
     homeLink.appendChild(homeIcon);
     homeLink.appendChild(textNode);
     homeMenu.appendChild(homeLink);
 
-    // renvoi
     return homeMenu
 };
 
-// Génère un sous-menu
-export const generateSubMenu = (menuData) => {
-    // conteneur du sous-menu
-    const container = document.createElement("li");
-    container.classList.add("navbar__element");
 
-    // titre du sous-menu
-    const title = document.createElement("h2");
-    title.textContent = menuData.title;
+// Génère le menu complet ----------------------------------------------------------------------------------------------
+export const generateMenu = async () => {
+    const menuData = await loadMenuData();
+    const navBar = document.querySelector(".navbar");
+    if (!navBar) return;
 
-    // conteneur de l'ensemble des items
-    const subContainer = document.createElement("ul");
-    subContainer.classList.add("navbar__submenu");
+    const fragment = document.createDocumentFragment();
+    fragment.appendChild(generateHome(menuData.home));
 
-    // ensemble des items
-    for (const subMenu of menuData.subMenu) {
-        const sub = document.createElement("li");
-        const link = document.createElement("a");
-
-        link.setAttribute("href", `${PAGES}${subMenu.tag}.html`);
-        link.textContent = subMenu.text;
-
-        sub.appendChild(link);
-        subContainer.appendChild(sub);
+    for (const subMenuData of menuData.menu) {
+        fragment.appendChild(generateGroup(subMenuData, NAVBAR_CONFIG));
     }
 
-    // montage
-    container.appendChild(title);
-    container.appendChild(subContainer);
+    navBar.appendChild(fragment);
+};
 
-    return container;
+
+// Génère le menu aside ----------------------------------------------------------------------------------------------
+export const generateAside = async () => {
+    const menuData = await loadMenuData();
+
+    await generateStructure(
+        ".sidebar",
+        menuData.menu,
+        (subMenuData) => generateGroup(subMenuData, SIDEBAR_CONFIG)
+    );
 };

@@ -1,10 +1,10 @@
 import { CURRENT_URL } from "./constants.js";
-import { generateMenu } from "./menu.js";
+import { generateMenu, generateAside } from "./menu.js";
 import { checkVideos } from "./videos.js"
 
 generateMenu();
 
-if ("index.html" in CURRENT_URL) {
+if (CURRENT_URL.pathname.includes('/index.html')) {
     generateAside();
 } else {
     document.addEventListener("DOMContentLoaded", checkVideos);
