@@ -312,6 +312,12 @@ h2 span, h3 span, .sidebar__element a span {
     border-left: 0.3rem solid var(--js);
 }
 
+.layout__text .console {
+    background-color: var(--console-light);
+    border-left: 0.3rem solid var(--console);
+    color: white;
+}
+
 .layout__text span {
     color: var(--comment-color);
 }
