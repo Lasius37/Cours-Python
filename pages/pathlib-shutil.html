@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Modules pathlib et shutil</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>pathlib et shutil : pour accéder au système de fichiers</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#import">Importer le module</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#create">Créer un chemin</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#build">Construire un chemin</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#exists">Vérifier l'existence d'un fichier ou d'un dossier</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#type">Vérifier le type de chemin</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#get-infos">Récupérer des informations sur un fichier ou un dossier</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#folder">Créer un dossier</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#browse">Parcourir un dossier</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#search">Rechercher des fichiers ou des dossiers</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#copy">Copier des fichiers ou des dossiers</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#move">Déplacer des fichiers ou des dossiers</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#rename">Renommer des fichiers ou des dossiers</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#delete">Supprimer des fichiers ou des dossiers</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="import">
+            <h2>Importer les modules</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Le module<span class="comment"> pathlib </span> permet d'accéder au système de fichiers de
+                        l'ordinateur.
+                    </p>
+                    <p>
+                        Le module<span class="comment"> shutil </span>permet de copier, déplacer
+                        et supprimer des dossiers ou des fichiers.
+                    </p>
+                    <pre class="python"><code><span class="word">import</span> shutil
+<span class="word">from</span> pathlib <span class="word">import</span> Path</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="create">
+            <h2>Créer un chemin</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Pour un dossier</p>
+                    <pre class="python"><code>my_folder = Path(<span class="text">"my_folder"</span>)</code></pre>
+                    <p>Pour un fichier</p>
+                    <pre class="python"><code>my_file = Path(<span class="text">"my_file"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="build">
+            <h2>Construire un chemin</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>DATA = Path(<span class="text">"data"</span>)
+my_file = DATA / <span class="text">"my_file.txt"</span></code></pre>
+                    <p>Chemin correspondant :<span class="comment"> data/my_file.txt</span>.</p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="exists">
+            <h2>Vérifier l'existence d'un fichier ou d'un dossier</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code><span class="word">if</span> my_path.<span class="function">exists</span>():
+    <span class="function">print</span>(<span class="text">"Le chemin existe"</span>)</code></pre>
+                    <p>Renvoie<span class="comment"> True </span>ou<span class="comment"> False</span>.</p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="type">
+            <h2>Vérifier le type de chemin</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code><span class="word">if</span> my_path.<span class="function">is_dir</span>():
+    <span class="function">print</span>(<span class="text">"C'est un dossier"</span>)</code></pre>
+                    <p>ou</p>
+                    <pre class="python"><code><span class="word">if</span> my_path.<span class="function">is_file</span>():
+    <span class="function">print</span>(<span class="text">"C'est un fichier"</span>)</code></pre>
+                    <p>Renvoient<span class="comment"> True </span>ou<span class="comment"> False</span>.</p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="get-infos">
+            <h2>Récupérer des informations sur un fichier ou un dossier</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Exemple :</p>
+                    <pre class="python"><code>my_file = Path(<span class="text">"C:"</span>) / <span class="text">"Folder"</span> / <span class="text">"Sub"</span> / <span class="text">"File.ext"</span></code></pre>
+                    <table>
+                        <tr>
+                            <td>Information</td>
+                            <td>Syntaxe</td>
+                            <td>Renvoie</td>
+                        </tr>
+                        <tr>
+                            <td>Nom complet</td>
+                            <td><pre class="python"><code>my_file.name</code></pre></td>
+                            <td><span class="comment">File.ext</span></td>
+                        </tr>
+                        <tr>
+                            <td>Nom sans extension</td>
+                            <td><pre class="python"><code>my_file.stem</code></pre></td>
+                            <td><span class="comment">File</span></td>
+                        </tr>
+                        <tr>
+                            <td>Extension</td>
+                            <td><pre class="python"><code>my_file.suffix</code></pre></td>
+                            <td><span class="comment">.ext</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dossier parent</td>
+                            <td><pre class="python"><code>my_file.parent</code></pre></td>
+                            <td><span class="comment">Sub</span></td>
+                        </tr>
+                        <tr>
+                            <td>Chemin absolu</td>
+                            <td><pre class="python"><code>my_file.<span class="function">resolve</span>()</code></pre></td>
+                            <td><span class="comment">C:\Folder\Sub\File.ext</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="folder">
+            <h2>Créer un dossier</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>Path(<span class="text">"folder/sub"</span>).<span class="function">mkdir</span>(
+    parents=<span class="word">True</span>,  <span class="comment"># conseillé ; permet de créer les dossiers intermédiaires si besoin</span>
+    exist_ok=<span class="word">True</span>  <span class="comment"># conseillé ; évite une erreur si le dossier existe déjà</span>
+)
+</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="browse">
+            <h2>Parcourir un dossier</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code><span class="word">for</span> path <span class="word">in</span> my_folder.<span class="function">iterdir()</span>:
+    <span class="function">print</span>(path)  <span class="comment"># affiche chaque fichier et sous-dossier</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="search">
+            <h2>Rechercher des fichiers ou des dossiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>my_files = my_folder.<span class="function">glob</span>(<span class="text">"*.txt"</span>)  <span class="comment"># on récupère tous les fichiers .txt</span>
+
+<span class="word">for</span> file <span class="word">in</span> myfiles:</code></pre>
+                    <p>Si on souhaite inclure les sous-dossier, on utilise la méthode<span class="comment"> rglob()</span>, qui itère sur les sous-dossiers.</p>
+                    <pre class="python"><code>my_files = my_main_folder.<span class="function">rglob</span>(<span class="text">"*.txt"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="copy">
+            <h2>Copier des fichiers ou des dossiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Pour copier un fichier.</p>
+                    <pre class="python"><code>source_file = SOURCE / <span class="text">"filename.ext"</span>  <span class="comment">"# SOURCE est un objet Path</span>
+target_file = TARGET / <span class="text">"new_filename.ext"</span>  <span class="comment">"# TARGET est un objet Path</span>
+
+shutil.<span class="function">copy</span>(source_file, target_file)
+shutil.<span class="function">copy2</span>(source_file, target_file)  <span class="comment"># copie aussi les métadonnées</span></code></pre>
+                    <p>Pour copier un dossier.</p>
+                    <pre class="python"><code>shutil.<span class="function">copytree</span>(source_folder, target_folder)  <span class="comment"># copie également les sous-dossiers</span>
+shutil.<span class="function">copytree</span>(source_folder, target_folder, dirs_exist_ok=<span class="word">True</span>)  <span class="comment"># autorise la copie même si le dossier cible existe déjà</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="move">
+            <h2>Déplacer des fichiers ou des dossiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>shutil.<span class="function">move</span>(source_path, target_folder)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="rename">
+            <h2>Renommer des fichiers ou des dossiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>source_path.<span class="function">rename</span>(target_path)
+source_path.<span class="function">replace</span>(target_path)  <span class="comment"># renomme en écrasant</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="delete">
+            <h2>Supprimer des fichiers ou des dossiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Attention, le dossier et son contenu sont supprimés de façon définitive.</p>
+                    <pre class="python"><code>my_file.<span class="function">unlink</span>()  <span class="comment"># supprime un fichier</span>
+my_folder.<span class="function">rmdir</span>()  <span class="comment"># supprime un dossier vide</span>
+shutil.<span class="function">rmtree</span>(my_folder)  <span class="comment"># supprime un dossier et tout son contenu</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/pathlib-shutil/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="module" src="../js/script.js" defer></script>
-    <title>Tuples</title>
+    <title>Module datetime</title>
 </head>
 <body>
     <!-- ***************************************************************************************************************
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Les tuples</h1>
+        <h1>datetime : pour prendre en compte le temps avec précision</h1>
 
         <!-- navbar
              ======================================================================================================= -->
@@ -43,25 +43,25 @@
                 <h2>Dans cette page</h2>
                 <ul>
                     <li class="sidebar__element">
-                        <a href="#create">Créer un tuple</a>
+                        <a href="#import">Importer le module</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#find">Trouver un élément dans un tuple</a>
+                        <a href="#now">Obtenir la date actuelle</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#length">Connaître la longueur d'un tuple</a>
+                        <a href="#create">Créer une date</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#browse">Parcourir un tuple</a>
+                        <a href="#convert">Convertir texte ↔ date</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#tuple-or-list">Tuple ou liste ?</a>
+                        <a href="#add">Ajouter une durée</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#errors">Erreurs fréquentes</a>
+                        <a href="#substract">Soustraire deux dates</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#exercises">Exercices</a>
+                        <a href="#interval">Récupérer un intervalle de temps</a>
                     </li>
                 </ul>
             </section>
@@ -75,120 +75,23 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="create">
-            <h2>Créer un tuple</h2>
+        <section id="import">
+            <h2>Importer le module</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <p>
-                        Un tuple fonctionne comme une liste, mais une fois créé, il n'est pas modifiable. On peut
-                        l'écraser, mais pas modifier les valeurs qu'il contient. On utilise les<span class="comment"> ()</span>.</p>
-                    <pre class="python"><code>coordonnees = (<span class="number">45</span>, <span class="number">32</span>)</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/tuples/create.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="find">
-            <h2>Trouver un élément dans un tuple</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <ul>
-                        <li>Pour récupérer la position d'un élément dans le tuple (son index) :
-                            <pre class="python"><code>semaine = (<span class="text">"lun"</span>, <span class="text">"mar"</span>, <span class="text">"mer"</span>, <span class="text">"jeu"</span>, <span class="text">"ven"</span>, <span class="text">"sam"</span>, <span class="text">"dim"</span>)
-numero = semaine.<span class="function">index</span>(<span class="text">"jeu"</span>)
-<span class="comment"># les index commencent à 0, donc le jeudi est à l'index 3 : les index sont 0 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6. Ici, numero prendra la valeur 3</span></code></pre>
-                        </li>
-                        <li>Pour récupérer le 6<sup>ème</sup> élément dans le tuple
-                            <pre class="python"><code>jour = semaine[<span class="number">5</span>]
-<span class="comment"># les index commencent à 0. Ici, jour prendra la valeur "sam"</span></code></pre>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/tuples/find.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="length">
-            <h2>Connaître la longueur d'un tuple</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>semaine = (<span class="text">"lun"</span>, <span class="text">"mar"</span>, <span class="text">"mer"</span>, <span class="text">"jeu"</span>, <span class="text">"ven"</span>, <span class="text">"sam"</span>, <span class="text">"dim"</span>)
-<span class="function">len</span>(semaine)
-<span class="comment"># renvoie 7</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/tuples/length.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="browse">
-            <h2>Parcourir un tuple</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>On réalise une boucle sur le tuple, et chaque élément du tuple sera traité indépendamment.</p>
-                    <pre class="python"><code><span class="word">for</span> jour <span class="word">in</span> semaine: <span class="comment">&nbsp;# pour chaque élément du tuple "semaine"</span>
-    <span class="function">print</span>(jour)</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/tuples/browse.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="tuple-or-list">
-            <h2>Tuple ou liste ?</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>
-                        Les tuples sont moins maniables (non modifiables), mais ils nécessitent moins de mémoire que
-                        les listes. Si vous voulez protéger les données en écriture, utilisez un tuple. Si vous voulez
-                        les rendre modifiables, utilisez une liste.
+                        Le module<span class="comment"> datetime </span>permet de prendre en compte les dates et heures.
+                        Des calculs de durées sont possibles.
                     </p>
+                    <pre class="python"><code><span class="word">from</span> datetime <span class="word">import</span> datetime, date, timedelta <span class="comment"> # importer le nécessaire seulement</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/tuples/tuple-or-list.mp4" type="video/mp4">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -196,78 +99,166 @@ numero = semaine.<span class="function">index</span>(<span class="text">"jeu"</s
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="errors">
-            <h2>Erreurs fréquentes</h2>
+        <section id="now">
+            <h2>Obtenir la date actuelle</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <ul>
-                        <li>Tentative de modification d'un tuple :<span class="code error"> AttributeError</span>.</li>
-                        <li>Oubli des<span class="comment"> , </span>de séparation : <span class="code error"> SyntaxError </span> ou <span class="error">comportement anormal</span>.</li>
-                    </ul>
+                    <pre class="python"><code>datetime.<span class="function">now</span>() <span class="comment">&nbsp;# renvoie la date et l'heure actuelle</span>
+date.<span class="function">today</span>() <span class="comment">&nbsp;# renvoie la date actuelle</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </section>
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="exercises">
-            <h2>Exercices</h2>
-            <ol>
+        <section id="create">
+            <h2>Créer une date</h2>
+            <div class="layout">
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
-                    <div class="layout">
-                        <div class="layout__text">
-                            <pre class="python"><code>a, b = (3, 7)
-print(a + b)</code></pre>
-                        </div>
-                    </div>
-                </li>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>date(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>) <span class="comment">&nbsp;# renvoie un objet date, le 19/06/2026</span>
+datetime(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">30</span>) <span class="comment">&nbsp;# renvoie un objet datetime, le 19/06/2026 à 14:30:00</span></code></pre>
+                </div>
 
-                <div class="separator"></div>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
-                    <div class="layout">
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="convert">
+            <h2>Convertir texte ↔ date</h2>
+            <div class="layout">
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="python"><code>mois = ("J" "F" "M" "A" "M" "J" "J" "A" "S" "O" "N" "D")
-mois.sort()
-for mois in mois:
-    print(mois)</code></pre>
-                        </div>
-                    </div>
-                </li>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>datetime.<span class="function">strptime</span>( <span class="comment">&nbsp;# convertit une chaîne en objet datetime</span>
+    <span class="text">"19/06/2026"</span>, <span class="comment">&nbsp;# la date à convertir</span>
+    <span class="text">"%d/%m/%Y"</span> <span class="comment">&nbsp;# dont on précise le format</span>
+)
 
-                <div class="separator"></div>
+my_date.<span class="function">strftime</span>(<span class="text">"%d/%m/%Y"</span>) <span class="comment">&nbsp;# convertit un objet date ou datetime en chaîne</span></code></pre>
+                    <table>
+                        <tr>
+                            <td>jour</td>
+                            <td>
+                                <span class="comment">%A </span>↔<span class="comment"> "vendredi"</span><br>
+                                <span class="comment">%a </span>↔<span class="comment"> "Ven"</span><br>
+                                <span class="comment">%d </span>↔<span class="comment"> "19"</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mois</td>
+                            <td>
+                                <span class="comment">%m </span>↔<span class="comment"> "06"</span><br>
+                                <span class="comment">%B </span>↔<span class="comment"> "juin"</span><br>
+                                <span class="comment">%b </span>↔<span class="comment"> "jui"</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>année</td>
+                            <td>
+                                <span class="comment">%Y </span>↔<span class="comment"> "2026"</span><br>
+                                <span class="comment">%y </span>↔<span class="comment"> "26"</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>heure</td>
+                            <td><span class="comment">%H </span>↔<span class="comment"> "14"</span></td>
+                        </tr>
+                        <tr>
+                            <td>minute</td>
+                            <td><span class="comment">%M </span>↔<span class="comment"> "30"</span></td>
+                        </tr>
+                        <tr>
+                            <td>seconde</td>
+                            <td><span class="comment">%S </span>↔<span class="comment"> "05"</span></td>
+                        </tr>
+                    </table>
+                </div>
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Écrire du code : coder le programme suivant.</h3>
-                    <div class="layout">
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <ul>
-                                <li>Créer un tuple avec votre prénom, votre nom et votre date de naissance.</li>
-                                <li>Afficher une phrase du type : "<span class="comment">Bastille Bastien - né le 14/07/1789</span>".</li>
-                            </ul>
-                        </div>
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="add">
+            <h2>Ajouter une durée</h2>
+            <div class="layout">
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__video">
-                            <video controls controlsList="nodownload" preload="metadata">
-                                <source src="../assets/tuples/ex3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </li>
-            </ol>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>next_week = datetime.<span class="function">now</span>() + <span class="function">timedelta</span>(days=<span class="number">7</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="substract">
+            <h2>Soustraire deux dates</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>delta = date2 - date1</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="interval">
+            <h2>Récupérer un intervalle de temps</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>delta.days <span class="comment">&nbsp;# ou .seconds, .total_seconds ou .microseconds ; pas d'autres valeurs</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </section>
     </main>
 

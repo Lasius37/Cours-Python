@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Module csv</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>csv : pour gérer des tableaux de données</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#import">Importer le module</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#read">Lire un fichier CSV</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#read-titles">Lire un fichier CSV avec des titres</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#parameters">Paramètres importants</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#create">Créer ou écraser un fichier CSV</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#update">Ajouter des lignes dans un fichier CSV</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#write-line">Écrire une ligne à partir d'une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#write-lines">Écrire plusieurs lignes à partir d'une liste de lignes</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#write-dict">Écrire à partir de dictionnaires</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="import">
+            <h2>Importer le module</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Le module<span class="comment"> csv </span>permet de traiter les données contenues dans les
+                        fichiers .csv. Les données sont présentées sous forme de tableaux. Ces fichiers sont
+                        généralement édités avec un tableur, mais on peut aussi les ouvrir avec un éditeur de texte.
+                    </p>
+                    <pre class="python"><code><span class="word">import</span> csv</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="read">
+            <h2>Lire un fichier CSV</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Permet de lire chaque ligne sous forme d'une liste.</p>
+                    <table>
+                        <tr>
+                            <td>Fichier CSV</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre><code><span class="comment">Dupont;Paul;14
+Durand;Marie;12</span></code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code><span class="word">with</span> <span class="function">open</span>(<span class="text">"my_file.csv"</span>, <span class="text">"r"</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    reader = csv.<span class="function">reader</span>(f, delimiter=<span class="text">";"</span>)
+
+    <span class="word">for</span> line <span class="word">in</span> reader:
+        <span class="function">print</span>(line)</code></pre>
+                                <ul>
+                                    <li><span class="comment">"r" </span>: indique le mode lecture</li>
+                                    <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                                    <li>On peut convertir<span class="comment"> reader </span>en une liste :<span class="comment"> data = list(reader)</span></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Résultat :</p>
+                    <pre class="python"><code>[<span class="text">'Dupont'</span>, <span class="text">'Paul'</span>, <span class="text">'14'</span>]
+[<span class="text">'Durand'</span>, <span class="text">'Marie'</span>, <span class="text">'12'</span>]</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="read-titles">
+            <h2>Lire un fichier CSV avec des titres</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Permet de lire chaque ligne sous forme d'un dictionnaire.</p>
+                    <table>
+                        <tr>
+                            <td>Fichier CSV</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre><code><span class="comment">Nom;Prénom;Age
+Dupont;Paul;14
+Durand;Marie;12</span></code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code><span class="word">with</span> <span class="function">open</span>(<span class="text">"my_file.csv"</span>, <span class="text">"r"</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    reader = csv.<span class="function">DictReader</span>(f, delimiter=<span class="text">";"</span>)
+
+    <span class="word">for</span> line <span class="word">in</span> reader:
+        <span class="function">print</span>(line)</code></pre>
+                                <ul>
+                                    <li><span class="comment">"r" </span>: indique le mode lecture</li>
+                                    <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Résultat :</p>
+                    <pre class="python"><code>{<span class="text">'Nom'</span>: <span class="text">'Dupont'</span>, <span class="text">'Prénom'</span>: <span class="text">'Paul'</span>, <span class="text">"Age"</span>: <span class="text">'14'</span>}
+{<span class="text">'Nom'</span>: <span class="text">'Durand'</span>, <span class="text">'Prénom'</span>: <span class="text">'Marie'</span>, <span class="text">"Age"</span>: <span class="text">'12'</span>}</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="parameters">
+            <h2>Paramètres importants</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Paramètre</td>
+                            <td>Utilité</td>
+                            <td>Remarque</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>delimiter=<span class="text">";"</span></code></pre>
+                            </td>
+                            <td>choisir le séparateur de données</td>
+                            <td>CSV français courant</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>encoding=<span class="text">"utf-8"</span></code></pre>
+                            </td>
+                            <td>gérer les accents</td>
+                            <td>recommandé pour les projets francophones</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>newline=<span class="text">""</span></code></pre>
+                            </td>
+                            <td>éviter d'incorporer une ligne vide</td>
+                            <td>surtout utile sous Windows</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="create">
+            <h2>Créer ou écraser un fichier CSV</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>with <span class="function">open</span>(<span class="text">"my_file.csv"</span>, <span class="text">"w"</span>, newline=<span class="text">""</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    writer = csv.<span class="function">writer</span>(f, delimiter=<span class="text">";"</span>)</code></pre>
+                    <ul>
+                        <li><span class="comment">"w" </span>: indique le mode écriture</li>
+                        <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="update">
+            <h2>Ajouter des lignes dans un fichier CSV</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>with <span class="function">open</span>(<span class="text">"my_file.csv"</span>, <span class="text">"a"</span>, newline=<span class="text">""</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    writer = csv.<span class="function">writer</span>(f, delimiter=<span class="text">";"</span>)</code></pre>
+                    <ul>
+                        <li><span class="comment">"a" </span>: indique le mode ajout</li>
+                        <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                    </ul>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="write-line">
+            <h2>Écrire une ligne à partir d'une liste</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Python</td>
+                            <td>Résultat en CSV</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Le code suivant est à taper à l'intérieur du<span class="comment"> with</span>.</p>
+                                <pre class="python"><code>writer.<span class="function">writerow</span>([<span class="text">"Nom"</span>, <span class="text">"Prénom"</span>, <span class="text">"Age"</span>])
+writer.<span class="function">writerow</span>([<span class="text">"Dupont"</span>, <span class="text">"Paul"</span>, <span class="number">14</span>])
+writer.<span class="function">writerow</span>([<span class="text">"Durand"</span>, <span class="text">"Marie"</span>, <span class="number">12</span>])</code></pre>
+                            </td>
+                            <td>
+                                <pre><code><span class="comment">Nom;Prénom;Age
+Dupont;Paul;14
+Durand;Marie;12</span></code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="write-lines">
+            <h2>Écrire plusieurs lignes à partir d'une liste de lignes</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Python</td>
+                            <td>Résultat en CSV</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>data = [
+    [<span class="text">"Nom"</span>, <span class="text">"Prénom"</span>, <span class="text">"Age"</span>],
+    [<span class="text">"Dupont"</span>, <span class="text">"Paul"</span>, <span class="number">14</span>],
+    [<span class="text">"Durand"</span>, <span class="text">"Marie"</span>, <span class="number">12</span>]
+]</code></pre>
+                                <p>Le code suivant est à taper à l'intérieur du<span class="comment"> with</span>.</p>
+                                <pre class="python"><code>writer.<span class="function">writerows</span>(data)</code></pre>
+                            </td>
+                            <td>
+                                <pre><code><span class="comment">Nom;Prénom;Age
+Dupont;Paul;14
+Durand;Marie;12</span></code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="write-dict">
+            <h2>Écrire à partir de dictionnaires</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>titles = [<span class="text">"Nom"</span>, <span class="text">"Prénom"</span>, <span class="text">"Age"</span>]
+data = {<span class="text">"Nom"</span>: <span class="text">"Dupont"</span>, <span class="text">"Prénom"</span>: <span class="text">"Paul"</span>, <span class="text">"Age"</span>: <span class="number">14</span>}
+
+with <span class="function">open</span>(<span class="text">"my_file.csv"</span>, <span class="text">"w"</span>, newline=<span class="text">""</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    writer = csv.<span class="function">DictWriter</span>(f, fieldnames=titles, delimiter=<span class="text">";"</span>)  <span class="comment"># fieldnames détermine les titres de colonnes</span>
+
+    writer.<span class="function">writeheader</span>()  <span class="comment"># écrit la ligne d’en-tête</span>
+    writer.<span class="function">writerow</span>(data)  <span class="comment"># écrit la ligne suivante</span>
+</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/csv/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

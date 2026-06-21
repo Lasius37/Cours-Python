@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="module" src="../js/script.js" defer></script>
-    <title>Chaînes de caractères</title>
+    <title>Module random</title>
 </head>
 <body>
     <!-- ***************************************************************************************************************
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Manipulation de chaînes de caractères</h1>
+        <h1>random : pour coder le hasard</h1>
 
         <!-- navbar
              ======================================================================================================= -->
@@ -43,16 +43,19 @@
                 <h2>Dans cette page</h2>
                 <ul>
                     <li class="sidebar__element">
-                        <a href="#case">Changer la casse d'une chaîne de caractères</a>
+                        <a href="#import">Importer le module</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#length">Connaître la longueur d'une chaîne de caractères</a>
+                        <a href="#integer">Choisir un nombre entier aléatoire</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#errors">Erreurs fréquentes</a>
+                        <a href="#decimal">Choisir un nombre décimal aléatoire</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#exercises">Exercices</a>
+                        <a href="#shuffle">Mélanger une liste</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#choose">Choisir dans une liste</a>
                     </li>
                 </ul>
             </section>
@@ -66,28 +69,23 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="case">
-            <h2>Changer la casse d'une chaîne de caractères</h2>
+        <section id="import">
+            <h2>Importer le module</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>Changer la casse, c'est passer des majuscules aux minuscules.</p>
-                        <pre class="python"><code>variable = <span class="text">"cOuCoU mAcHiN"</span>
-variable.<span class="function">lower</span>()
-<span class="comment"># tout en minuscules : "coucou machin"</span>
-variable.<span class="function">upper</span>()
-<span class="comment"># tout en majuscules : "COUCOU MACHIN"</span>
-variable.<span class="function">capitalize</span>()
-<span class="comment"># majuscule à la première lettre du premier mot : "Coucou machin"</span>
-variable.<span class="function">title</span>()
-<span class="comment"># majuscule à la première lettre de chaque mot : "Coucou Machin"</span></code></pre>
+                    <p>
+                        Le module<span class="comment"> random </span>permet de gérer les événements aléatoires.
+                        Probabilité, tirage au sort, mélange d'objets sont accessibles en Python.
+                    </p>
+                    <pre class="python"><code><span class="word">import</span> random</code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/strings/case.mp4" type="video/mp4">
+                        <source src="../assets/random/.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -95,21 +93,20 @@ variable.<span class="function">title</span>()
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="length">
-            <h2>Connaître la longueur d'une chaîne de caractères</h2>
+        <section id="integer">
+            <h2>Choisir un nombre entier aléatoire</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <p>Cela peut être utile de connaître la longueur d'une chaîne de caractères.</p>
-                    <pre class="python"><code>variable = <span class="text">"Une chaîne de caractères"</span>
-<span class="function">len</span>(variable) <span class="comment">&nbsp;# renvoie 24</span></code></pre>
+                    <pre class="python"><code>random.<span class="function">randint</span>(<span class="number">1</span>, <span class="number">6</span>) <span class="comment">&nbsp;# renvoie un nombre entre 1 et 6 inclus</span>
+random.<span class="function">randrange</span>(<span class="number">1</span>, <span class="number">6</span>) <span class="comment">&nbsp;# renvoie un nombre entre 1 inclus et 6 exclu</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/strings/length.mp4" type="video/mp4">
+                        <source src="../assets/random/.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -117,80 +114,69 @@ variable.<span class="function">title</span>()
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="errors">
-            <h2>Erreurs fréquentes</h2>
+        <section id="decimal">
+            <h2>Choisir un nombre décimal aléatoire</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <ul>
-                        <li>Oubli des parenthèses après l'appel du changement de casse : <span class="error">comportement anormal</span>.</li>
-                        <li>Mauvaise utilisation de<span class="comment"> len() </span>ou des méthodes d'appel de changement de casse :<span class="code error"> AttributeError </span>ou<span class="code error"> NameError</span>.</li>
-                    </ul>
+
+                    <pre class="python"><code>random.<span class="function">random</span>() <span class="comment">&nbsp;# renvoie un nombre entre 0 inclus et 1 exclu</span>
+random.<span class="function">uniform</span>(<span class="number">1</span>, <span class="number">10</span>) <span class="comment">&nbsp;# renvoie un nombre entre 1 et 10 environ</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/random/.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </section>
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="exercises">
-            <h2>Exercices</h2>
-            <ol>
+        <section id="shuffle">
+            <h2>Mélanger une liste</h2>
+            <div class="layout">
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
-                    <div class="layout">
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>random.<span class="function">shuffle</span>(my_list)  <span class="comment"># modifie directement la liste</span></code></pre>
+                </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="python"><code>s = "bonjour"
-print(s.capitalize())</code></pre>
-                        </div>
-                    </div>
-                </li>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/random/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-                <div class="separator"></div>
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="choose">
+            <h2>Choisir dans une liste</h2>
+            <div class="layout">
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
-                    <div class="layout">
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Pour choisir un élément.</p>
+                    <pre class="python"><code>random.<span class="function">choice</span>(my_list)</code></pre>
+                    <p>Pour choisir plusieurs éléments, une seule fois (tirage sans remise).</p>
+                    <pre class="python"><code>random.<span class="function">sample</span>(my_list, <span class="number">3</span>)</code></pre>
+                    <p>Pour choisir plusieurs éléments, plusieurs fois sont possibles (tirage avec remise).</p>
+                    <pre class="python"><code>random.<span class="function">choices</span>(my_list, k=<span class="number">5</span>)</code></pre>
+                </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="python"><code>titre = "le petit prince"
-titre = title(titre)
-print(titre)
-print(titre.len())</code></pre>
-                        </div>
-                    </div>
-                </li>
-
-                <div class="separator"></div>
-
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Écrire du code : coder le programme suivant.</h3>
-                    <div class="layout">
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <ul>
-                                <li>Demander à l'utilisateur de saisir son nom et son prénom.</li>
-                                <li>Enregistrer le nom en majuscules, le prénom avec la première lettre en majuscules.</li>
-                            </ul>
-                        </div>
-
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__video">
-                            <video controls controlsList="nodownload" preload="metadata">
-                                <source src="../assets/strings/ex3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </li>
-            </ol>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/random/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </section>
     </main>
 

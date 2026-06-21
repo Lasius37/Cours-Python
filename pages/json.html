@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Module json</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>json : pour échanger des données structurées</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#import">Importer le module</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#read-file">Lire un fichier JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#read-string">Lire une chaîne JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#data-access">Accéder aux données</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#write-file">Écrire dans un fichier</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#convert-string">Convertir en chaîne JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#clean">Afficher proprement des données JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#ascii">Conserver les accents dans des données JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#keys-sort">Trier les clés dans des données JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#update">Modifier un fichier JSON</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#json-python">Correspondance automatique JSON ↔ Python</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="import">
+            <h2>Importer le module</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Le module<span class="comment"> json </span>permet de traiter les données contenues dans les
+                        fichiers .json. Les données sont présentées sous forme de dictionnaires et de listes imbriqués.
+                        On peut ouvrir ces fichiers avec un éditeur de texte.
+                    </p>
+                    <pre class="python"><code><span class="word">import</span> json</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="read-file">
+            <h2>Lire un fichier JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Fichier JSON</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre><code><span class="comment">{
+    "nom": "Paul",
+    "age": 14
+}</span></code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code><span class="word">with</span> <span class="function">open</span>(<span class="text">"my_file.json"</span>, <span class="text">"r"</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    data = json.<span class="function">load</span>(f)</code></pre>
+                                <ul>
+                                    <li><span class="comment">"r" </span>: indique le mode lecture</li>
+                                    <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Résultat :</p>
+                    <pre class="python"><code>{<span class="text">'nom'</span>: <span class="text">'Paul'</span>, <span class="text">'age'</span>: <span class="number">14</span>}</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="read-string">
+            <h2>Lire une chaîne JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Texte JSON</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>my_json_text = <span class="text">'{"nom": "Paul", "age": 14}'</span></code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code>data = json.<span class="function">loads</span>(my_json_text)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Résultat :</p>
+                    <pre class="python"><code>{<span class="text">'nom'</span>: <span class="text">'Paul'</span>, <span class="text">'age'</span>: <span class="number">14</span>}</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="data-access">
+            <h2>Accéder aux données</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        L'accès aux données se fait de façon classique en utilisant les listes et les dictionnaires.
+                        Il peut donc être utile de vérifier le type de données obtenues quand on découvre un fichier ou
+                        un contenu json.
+                    </p>
+                    <pre class="python"><code><span class="function">print</span>(<span class="function">type</span>(data))</code></pre>
+                    <p>Résultats possibles :<span class="comment"> dict </span>ou<span class="comment"> list</span>.</p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="write-file">
+            <h2>Écrire dans un fichier</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Données</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>data = {
+    <span class="text">"nom"</span>: <span class="text">"Paul"</span>,
+    <span class="text">"age"</span>: <span class="number">14</span>
+}</code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code><span class="word">with</span> <span class="function">open</span>(<span class="text">"my_file.json"</span>, <span class="text">"w"</span>, encoding=<span class="text">"utf-8"</span>) <span class="word">as</span> f:
+    json.<span class="function">dump</span>(data, f)</code></pre>
+                                <ul>
+                                    <li><span class="comment">"w" </span>: indique le mode écriture</li>
+                                    <li><span class="comment">encoding="utf-8" </span>: précise le type d'encodage</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="convert-string">
+            <h2>Convertir en chaîne JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Données</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>data = {
+    <span class="text">"nom"</span>: <span class="text">"Paul"</span>,
+    <span class="text">"age"</span>: <span class="number">14</span>
+}</code></pre>
+                            </td>
+                            <td>
+                                <pre class="python"><code>text = json.<span class="function">dumps</span>(data)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Résultat :</p>
+                    <pre class="python"><code><span class="text">'{"nom": "Paul", "age": 14}'</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="clean">
+            <h2>Afficher proprement des données JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Python</td>
+                            <td>Résultat en JSON</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>json.<span class="function">dump</span>(data, f, indent=<span class="number">4</span>)</code></pre>
+                                <p>ou</p>
+                                <pre class="python"><code>text = json.<span class="function">dumps</span>(data, indent=<span class="number">4</span>)</code></pre>
+                            </td>
+                            <td>
+                                <pre><code><span class="comment">{
+    "nom": "Paul",
+    "age": 14
+}</span></code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="ascii">
+            <h2>Conserver les accents dans des données JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Python</td>
+                            <td>Résultat sans</td>
+                            <td>Résultat avec</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>json.<span class="function">dump</span>(
+    data,
+    f,
+    ensure_ascii=<span class="word">False</span>
+)</code></pre></td>
+                            <td>
+                                <pre><code><span class="comment">{
+    "pr\u00e9nom": "L\u00e9o"
+}</span></code></pre>
+                            </td>
+                            <td>
+                                <pre><code><span class="comment">{
+    "prénom": "Léo"
+}</span></code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="keys-sort">
+            <h2>Trier les clés dans des données JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Python</td>
+                            <td>Résultat sans</td>
+                            <td>Résultat avec</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <pre class="python"><code>json.<span class="function">dump</span>(
+    data,
+    f,
+    sort_keys=<span class="word">True</span>
+)</code></pre></td>
+                            <td>
+                                <pre><code><span class="comment">{
+    "age": 14,
+    "nom": "Paul",
+    "classe": "4A"
+}</span></code></pre>
+                            </td>
+                            <td>
+                                <pre><code><span class="comment">{
+    "age": 14,
+    "classe": "4A",
+    "nom": "Paul"
+}</span></code></pre>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="update">
+            <h2>Modifier un fichier JSON</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Pour modifier un fichier ou un contenu json, il est d'abord nécessaire de le lire
+                        (<span class="comment">json.load() </span>ou<span class="comment"> json.loads()</span>),
+                        puis modifier les données, pour pouvoir ensuite écrire
+                        (<span class="comment">json.dump() </span>ou<span class="comment"> json.dumps()</span>).
+                    </p>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="json-python">
+            <h2>Correspondance automatique JSON ↔ Python</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>JSON</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>objet<span class="comment"> {}</span></td>
+                            <td><span class="comment">dict</span></td>
+                        </tr>
+                        <tr>
+                            <td>tableau<span class="comment"> []</span></td>
+                            <td><span class="comment">list</span></td>
+                        </tr>
+                        <tr>
+                            <td>chaîne</td>
+                            <td><span class="comment">str</span></td>
+                        </tr>
+                        <tr>
+                            <td>entier</td>
+                            <td><span class="comment">int</span></td>
+                        </tr>
+                        <tr>
+                            <td>décimal</td>
+                            <td><span class="comment">float</span></td>
+                        </tr>
+                        <tr>
+                            <td>true</td>
+                            <td><span class="comment">True</span></td>
+                        </tr>
+                        <tr>
+                            <td>false</td>
+                            <td><span class="comment">False</span></td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td><span class="comment">None</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/json/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>
