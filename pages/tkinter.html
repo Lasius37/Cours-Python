@@ -383,14 +383,15 @@ my_canvas.<span class="function">pack</span>()</code></pre>
                         réutilisation ultérieure.
                     </p>
                     <pre class="python"><code>my_line = my_canvas.<span class="function">create_line</span>(
-    <span class="number">50</span>, <span class="number">50</span>,  <span class="number">150</span>, <span class="number">100</span>
+    <span class="number">50</span>, <span class="number">50</span>, <span class="number">150</span>, <span class="number">100</span>
 )</code></pre>
                     <p>On peut modifier certains paramètres de ces objets.</p>
-                    <pre class="python"><code>    fill=<span class="text">"#5080d0"</span>,  <span class="comment"># couleur de remplissage ou de police</span>
-    fill=<span class="text">""</span>,  <span class="comment"># remplissage vide</span>
-    outline=<span class="text">"#2b2b2b"</span>  <span class="comment"># couleur du contour</span>
+                    <pre class="python"><code>my_canvas.<span class="function">create_oval</span>(
+    <span class="number">50</span>, <span class="number">50</span>, <span class="number">150</span>, <span class="number">100</span>,
+    fill=<span class="text">"#5080d0"</span>,  <span class="comment"># couleur de remplissage ou de police ; "" pour vide</span>
+    outline=<span class="text">"#2b2b2b"</span>,  <span class="comment"># couleur du contour</span>
     width=<span class="number">5</span>  <span class="comment"># épaisseur du contour</span>
-</code></pre>
+)</code></pre>
                     <p>On peut écrire du texte.</p>
                     <pre class="python"><code>my_canvas.<span class="function">create_text</span>(
     <span class="number">100</span>, <span class="number">50</span>,
