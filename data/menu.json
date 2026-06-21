@@ -75,6 +75,34 @@
 					"text": "Projet : Le parking"
 				}
 			]
+		},{
+			"title": "Quelques modules utiles",
+			"subMenu": [
+				{
+					"tag": "csv",
+					"text": "csv - tableaux de données"
+				},
+				{
+					"tag": "json",
+					"text": "json - données structurées"
+				},
+				{
+					"tag": "pathlib-shutil",
+					"text": "pathlib et shutil - système de fichiers"
+				},
+				{
+					"tag": "datetime",
+					"text": "datetime - le temps"
+				},
+				{
+					"tag": "random",
+					"text": "random - le hasard"
+				},
+				{
+					"tag": "tkinter",
+					"text": "tkinter - interfaces graphiques"
+				}
+			]
 		}
 	]
 }

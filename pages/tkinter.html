@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/script.js" defer></script>
+    <title>Module tkinter</title>
+</head>
+<body>
+    <!-- ***************************************************************************************************************
+         HEADER
+    **************************************************************************************************************** -->
+    <header>
+        <h1>tkinter : pour créer des interfaces graphiques</h1>
+
+        <!-- navbar
+             ======================================================================================================= -->
+        <nav>
+            <ul class="navbar"></ul>
+        </nav>
+    </header>
+
+    <!-- ***************************************************************************************************************
+         ASIDE
+    **************************************************************************************************************** -->
+    <aside>
+
+        <!-- sidebar
+             ======================================================================================================= -->
+        <nav class="sidebar">
+
+            <!-- sidebar group ------------------------------------------------------------------------------------- -->
+            <section class="sidebar__group">
+                <h2>Dans cette page</h2>
+                <ul>
+                    <li class="sidebar__element">
+                        <a href="#import">Importer le module</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#main">Créer la fenêtre principale de l'application</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#widgets">Intégrer des widgets</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#variables">Utiliser les variables tkinter</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#draw">Dessiner et créer des animations</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#files">Accéder aux fichiers</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#interface">Organiser l'interface</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#user">Interagir avec l'utilisateur</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#bind">Lier un widget à un événement</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#messagebox">Utiliser les boîtes de dialogue</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <!-- ***************************************************************************************************************
+         MAIN
+    **************************************************************************************************************** -->
+    <main>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="import">
+            <h2>Importer le module</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Le module<span class="comment"> tkinter </span>permet de créer des interfaces graphiques
+                        simples pour des petits projets. Il comporte des widgets assez variés qui permettent à
+                        l'utilisateur d'interagir avec le programme.
+                    </p>
+                    <pre class="python"><code><span class="word">import</span> tkinter <span class="word">as</span> tk</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="main">
+            <h2>Créer la fenêtre principale de l'application</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On crée la fenêtre de la façon suivante.</p>
+                    <pre class="python"><code>app = tk.Tk()  <span class="comment"># crée une application tkinter</span>
+
+icon = tk.PhotoImage(<span class="text">file="icon.png"</span>)  <span class="comment"># crée une icône à partir d’un fichier png</span>
+app.<span class="function">iconphoto</span>(<span class="word">True</span>, icon)  <span class="comment"># affiche l’icône sur la fenêtre de l’appli</span>
+app.<span class="function">title</span>(<span class="text">"My App"</span>)  <span class="comment"># donne un titre à l’appli</span>
+app.<span class="function">geometry</span>(<span class="text">"800x600"</span>)  <span class="comment"># définit la taille de la fenêtre, en pixels</span>
+app.<span class="function">attributes</span>(<span class="text">"-fullscreen"</span>, <span class="word">True</span>)  <span class="comment"># mode plein écran</span>
+app.<span class="function">resizable</span>(<span class="word">False</span>, <span class="word">False</span>)  <span class="comment"># empêche le redimensionnement</span>
+app.<span class="function">configure</span>(<span class="text">bg="#5080d0"</span>)  <span class="comment"># change la couleur de fond</span>
+app.<span class="function">overrideredirect</span>(<span class="word">True</span>)  <span class="comment"># supprime la barre de titre et les boutons</span>
+
+app.mainloop()  <span class="comment"># lance l’application tkinter ; à placer en fin de fichier</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="widgets">
+            <h2>Intégrer des widgets</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Les widgets essentiels</p>
+                    <table>
+                        <tr>
+                            <td>Widget</td>
+                            <td>Objet</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>Étiquette de texte</td>
+                            <td><span class="comment">Label</span></td>
+                            <td>
+                                <pre class="python"><code>my_label = tk.Label(
+    app,  <span class="comment"># le parent où afficher le widget</span>
+    text=<span class="text">"Hello"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bouton</td>
+                            <td><span class="comment">Button</span></td>
+                            <td>
+                                <pre class="python"><code>my_button = tk.Button(
+    app,
+    text=<span class="text">"OK"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Champ de saisie</td>
+                            <td><span class="comment">Entry</span></td>
+                            <td>
+                                <pre class="python"><code>my_entry = tk.Entry(app)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Zone de texte</td>
+                            <td><span class="comment">Text</span></td>
+                            <td>
+                                <pre class="python"><code>my_text = tk.Text(
+    app,
+    width=<span class="number">40</span>,  <span class="comment"># largeur (en caractères)</span>
+    height=<span class="number">10</span>  <span class="comment"># hauteur (en caractères)</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Case à cocher</td>
+                            <td><span class="comment">Checkbutton</span></td>
+                            <td>
+                                <pre class="python"><code>checked = tk.BooleanVar()
+
+my_checkbtn = tk.Checkbutton(
+    app,
+    text=<span class="text">"Option"</span>,
+    variable=checked  <span class="comment"># checked est une variable tkinter</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bouton radio</td>
+                            <td><span class="comment">Radiobutton</span></td>
+                            <td>
+                                <pre class="python"><code>choice = tk.StringVar()
+
+my_radiobtn = tk.Radiobutton(
+    app,
+    text=<span class="text">"Option 1"</span>,
+    variable=choice,  <span class="comment"># choice est une variable tkinter</span>
+    value=<span class="text">"option1"</span>  <span class="comment"># pour différencier les boutons</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Liste de choix</td>
+                            <td><span class="comment">Listbox</span></td>
+                            <td>
+                                <pre class="python"><code>my_listbox = tk.Listbox(app)
+
+my_listbox.<span class="function">insert</span>(
+    tk.END,  <span class="comment"># position d’insertion (fin de la liste)</span>
+    <span class="text">"Element 1"</span>  <span class="comment"># donnée à ajouter</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Curseur</td>
+                            <td><span class="comment">Scale</span></td>
+                            <td>
+                                <pre class="python"><code>my_scale = tk.Scale(
+    app,
+    from_=<span class="number">0</span>,
+    to=<span class="number">100</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nombre avec boutons +/-</td>
+                            <td><span class="comment">Spinbox</span></td>
+                            <td>
+                                <pre class="python"><code>my_spinbox = tk.Spinbox(
+    app,
+    from_=<span class="number">0</span>,
+    to=<span class="number">100</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Liste de choix</td>
+                            <td><span class="comment">Listbox</span></td>
+                            <td>
+                                <pre class="python"><code>my_listbox = tk.Listbox(app)
+
+my_listbox.<span class="function">insert</span>(
+    tk.END,  <span class="comment"># position d’insertion (fin de la liste)</span>
+    <span class="text">"Element 1"</span>  <span class="comment"># donnée à ajouter</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="variables">
+            <h2>Utiliser les variables tkinter</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>
+                        Pour que les widgets soient associés à des données, il faut leur affecter des
+                        variables<span class="comment"> tkinter</span>.
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Types de variables<span class="comment"> tkinter</span></td>
+                            <td>
+                                <pre class="python"><code>text = tk.StringVar()
+number = tk.IntVar()
+state = tk.BooleanVar()</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Associer une variable à un widget</td>
+                            <td>
+                                <pre class="python"><code>my_var = tk.StringVar()
+
+my_entry = tk.Entry(
+    app,
+    textvariable=my_var
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lire la valeur d'une variable</td>
+                            <td>
+                                <pre class="python"><code>value = my_var.<span class="function">get</span>()</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modifier la valeur d'une variable</td>
+                            <td>
+                                <pre class="python"><code>my_var.<span class="function">set</span>(<span class="text">"New value"</span>)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="draw">
+            <h2>Dessiner et créer des animations</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>On crée d'abord un<span class="comment"> Canvas</span>.</p>
+                    <pre class="python"><code>my_canvas = tk.Canvas(
+    app,
+    width=<span class="number">400</span>,   <span class="comment"># largeur en pixels</span>
+    height=<span class="number">300</span>,  <span class="comment"># hauteur en pixels</span>
+    bg=<span class="text">"white"</span>   <span class="comment"># arrière-plan</span>
+)
+
+my_canvas.<span class="function">pack</span>()</code></pre>
+                    <p>On peut dessiner des formes géométriques.</p>
+                    <table>
+                        <tr>
+                            <td>Ligne</td>
+                            <td>
+                                <pre class="python"><code>my_canvas.<span class="function">create_line</span>(
+    <span class="number">50</span>, <span class="number">50</span>,  <span class="comment"># coordonnées du premier point (x, y)</span>
+    <span class="number">150</span>, <span class="number">100</span>  <span class="comment"># coordonnées du deuxième point (x, y)</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rectangle</td>
+                            <td>
+                                <pre class="python"><code>my_canvas.<span class="function">create_rectangle</span>(
+    <span class="number">50</span>, <span class="number">50</span>,  <span class="comment"># coordonnées du premier coin (x, y)</span>
+    <span class="number">150</span>, <span class="number">100</span>  <span class="comment"># coordonnées du deuxième coin (x, y)</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cercle ou ellipse</td>
+                            <td>
+                                <pre class="python"><code>my_canvas.<span class="function">create_oval</span>(
+    <span class="number">50</span>, <span class="number">50</span>,  <span class="comment"># coordonnées du premier coin (x, y)</span>
+    <span class="number">150</span>, <span class="number">100</span>  <span class="comment"># coordonnées du deuxième coin (x, y)</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Polygone</td>
+                            <td>
+                                <pre class="python"><code>my_canvas.<span class="function">create_polygon</span>(
+    <span class="number">50</span>, <span class="number">50</span>,  <span class="comment"># coordonnées du premier point (x, y)</span>
+    <span class="number">150</span>, <span class="number">100</span>  <span class="comment"># coordonnées du deuxième point (x, y)</span>
+    <span class="number">100</span>, <span class="number">150</span>  <span class="comment"># coordonnées du troisième point (x, y)</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>
+                        Il peut être utile de conserver les objets du<span class="comment"> Canvas </span> pour une
+                        réutilisation ultérieure.
+                    </p>
+                    <pre class="python"><code>my_line = my_canvas.<span class="function">create_line</span>(
+    <span class="number">50</span>, <span class="number">50</span>,  <span class="number">150</span>, <span class="number">100</span>
+)</code></pre>
+                    <p>On peut modifier certains paramètres de ces objets.</p>
+                    <pre class="python"><code>    fill=<span class="text">"#5080d0"</span>,  <span class="comment"># couleur de remplissage ou de police</span>
+    fill=<span class="text">""</span>,  <span class="comment"># remplissage vide</span>
+    outline=<span class="text">"#2b2b2b"</span>  <span class="comment"># couleur du contour</span>
+    width=<span class="number">5</span>  <span class="comment"># épaisseur du contour</span>
+</code></pre>
+                    <p>On peut écrire du texte.</p>
+                    <pre class="python"><code>my_canvas.<span class="function">create_text</span>(
+    <span class="number">100</span>, <span class="number">50</span>,
+    text=<span class="text">"Bonjour"</span>,
+    fill=<span class="text">"#5080d0"</span>,
+    font=(<span class="text">"Arial"</span>, <span class="number">16</span>, <span class="text">"bold"</span>)
+)</code></pre>
+                    <p>On peut ajouter une image.</p>
+                    <pre class="python"><code>my_image = tk.PhotoImage(
+    file=<span class="text">"image.png"</span>
+)
+
+my_canvas.<span class="function">create_image</span>(
+    <span class="number">200</span>, <span class="number">150</span>,
+    image=my_image
+)</code></pre>
+                    <p>On peut modifier les paraamètres d'un objet du<span class="comment"> Canvas </span>après sa création.</p>
+                    <pre class="python"><code>my_canvas_object.<span class="function">itemconfig</span>(
+    fill=<span class="text">"#29d64a"</span>
+)</code></pre>
+                    <p>On peut déplacer un objet.</p>
+                    <pre class="python"><code>my_canvas.<span class="function">move</span>(  <span class="comment"># déplace un objet de façon relative</span>
+    my_canvas_object,
+    <span class="number">10</span>,  <span class="comment"># déplacement horizontal</span>
+    <span class="number">0</span>  <span class="comment"># déplacement vertical</span>
+)
+
+my_canvas.<span class="function">coords</span>(  <span class="comment"># déplace un objet de façon absolue</span>
+    my_canvas_object,
+    <span class="number">100</span>, <span class="number">0</span>  <span class="comment"># nouvelles coordonnées</span>
+)</code></pre>
+                    <p>On peut supprimer un objet.</p>
+                    <pre class="python"><code>my_canvas.<span class="function">delete</span>(my_object)</code></pre>
+                    <p>On peut supprimer tout le<span class="comment"> Canvas</span>.</p>
+                    <pre class="python"><code>my_canvas.<span class="function">delete</span>(<span class="text">"all"</span>)</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="files">
+            <h2>Accéder aux fichiers</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Importer le sous-module</td>
+                            <td>
+                                <pre class="python"><code><span class="word">from</span> tkinter <span class="word">import </span>filedialog</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sélection d'un fichier ou d'un dossier</td>
+                            <td>
+                                <pre class="python"><code>my_file = filedialog.<span class="function">askopenfilename</span>()  <span class="comment"># pour un fichier</span>
+my_folder = filedialog.<span class="function">askdirectory</span>()  <span class="comment"># pour un dossier</span></code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Choisir où enregistrer un fichier</td>
+                            <td>
+                                <pre class="python"><code>my_file = filedialog.<span class="function">asksaveasfilename</span>()</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="interface">
+            <h2>Organiser l'interface</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Empiler les widgets</td>
+                            <td>
+                                <pre class="python"><code>my_widget.<span class="function">pack</span>(  <span class="comment"># tous les paramètres ci-dessous sont facultatifs</span>
+    padx=<span class="number">10</span>,  <span class="comment"># espace laissé libre horizontalement</span>
+    pady=<span class="number">10</span>,  <span class="comment"># espace laissé libre verticalement</span>
+    fill=<span class="text">"both"</span>,  <span class="comment"># étire le widget : "x", "y" ou "both"</span>
+    expand=<span class="word">True</span>  <span class="comment"># le widget occupe l’espace libre du conteneur</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Organiser les widgets en tableau</td>
+                            <td>
+                                <pre class="python"><code>my_widget.<span class="function">grid</span>(
+    row=<span class="number">0</span>,  <span class="comment"># numéro de ligne</span>
+    column=<span class="number">0</span>  <span class="comment"># numéro de colonne</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Placer un widget de façon absolue</td>
+                            <td>
+                                <pre class="python"><code>my_widget.<span class="function">place</span>(
+    x=<span class="number">100</span>,  <span class="comment"># position horizontale</span>
+    y=<span class="number">50</span>  <span class="comment"># position verticale</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Faire des groupes de widgets</td>
+                            <td>
+                                <pre class="python"><code>my_frame = tk.Frame(app)  <span class="comment"># crée une boîte vide</span>
+my_frame.<span class="function">pack</span>()  <span class="comment"># place la boîte</span>
+
+my_button = tk.Button(
+    my_frame,  <span class="comment"># place le bouton dans la boîte</span>
+    text=<span class="text">"OK"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="user">
+            <h2>Interagir avec l'utilisateur</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <p>Certains widgets peuvent être manipulés.</p>
+                    <table>
+                        <tr>
+                            <td>Tâche</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr>
+                            <td>Associer une fonction à un bouton</td>
+                            <td>
+                                <pre class="python"><code><span class="word">def</span> <span class="function">my_function</span>():
+    <span class="function">print</span>(<span class="text">"Clicked !"</span>)
+
+my_button = tk.Button(
+    app,
+    text=<span class="text">"Click"</span>,
+    command=<span class="function">my_function</span>  <span class="comment"># Attention : pas de parenthèses !</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lier le contenu d'un<span class="comment"> Entry</span></td>
+                            <td>
+                                <pre class="python"><code>text = my_entry.<span class="function">get</span>()</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Vider un<span class="comment"> Entry</span></td>
+                            <td>
+                                <pre class="python"><code>my_entry.<span class="function">delete</span>(
+    <span class="number">0</span>,  <span class="comment"># premier caractère à supprimer</span>
+    tk.END  <span class="comment"># dernier caractère à supprimer</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Écrire dans un<span class="comment"> Entry</span></td>
+                            <td>
+                                <pre class="python"><code>my_entry.<span class="function">insert</span>(
+    <span class="number">0</span>,  <span class="comment"># position où commencer à écrire</span>
+    <span class="text">"New text in entry"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modifier un<span class="comment"> Label</span></td>
+                            <td>
+                                <pre class="python"><code>my_label.<span class="function">config</span>(
+    text=<span class="text">"New label text"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="bind">
+            <h2>Lier un widget à un événement</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code><span class="word">def</span> <span class="function">my_function</span>(event):  <span class="comment"># le paramètre event est fourni par tkinter</span>
+    ...
+
+my_widget.<span class="function">bind</span>(
+    my_event,  <span class="comment"># type d’événement</span>
+    my_function  <span class="comment"># pas de parenthèses</span>
+)</code></pre>
+                    <p>Le paramètre<span class="comment"> event </span>contient de nombreuses informations.</p>
+                    <table>
+                        <tr>
+                            <td colspan="2">Informations du paramètre <span class="comment">event</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.x</span>,<span class="comment"> event.y</span></td>
+                            <td>position dans le widget</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.x_root</span>,<span class="comment"> event.y_root</span></td>
+                            <td>position à l'écran</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.num</span></td>
+                            <td>Bouton de la souris utilisé (<span class="comment">1 </span>: gauche,<span class="comment"> 3 </span>: droite)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.char</span></td>
+                            <td>caractère tapé (a, A, 5, @)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.keysym</span></td>
+                            <td>nom de la touche tapée</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.keycode</span></td>
+                            <td>code numérique de la touche tapée</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.time</span></td>
+                            <td>horodatage de l'événement en ms</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.widget</span></td>
+                            <td>obket<span class="comment"> tkinter </span>concerné</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.type</span></td>
+                            <td>Type d'événement (ButtonPress, Motion, ...)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">event.state</span></td>
+                            <td>Modificateur clavier (Shift, Ctrl, Alt, souris)</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table>
+                        <tr>
+                            <td colspan="2">Types d'événements</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Button-1&gt;</span>,<span class="comment"> &lt;Button-2&gt;</span>,<span class="comment"> &lt;Button-3&gt;</span></td>
+                            <td>Clic de souris (gauche, milieu, droit)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Double-Button-1&gt;</span></td>
+                            <td>Double clic gauche</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;ButtonRelease-1&gt;</span></td>
+                            <td>Relâchement clic gauche</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Motion&gt;</span></td>
+                            <td>Mouvement de souris</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Enter&gt;</span>,<span class="comment"> &lt;Leave&gt;</span></td>
+                            <td>Entrée / sortie widget</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;MouseWheel&gt;</span></td>
+                            <td>Molette souris</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;KeyPress&gt; </span>ou<span class="comment"> &lt;Key&gt;</span></td>
+                            <td>Touche clavier</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;KeyRelease&gt;</span></td>
+                            <td>Touche clavier relâchée</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Return&gt;</span>,<span class="comment"> &lt;Escape&gt;</span>,<span class="comment"> &lt;space&gt;</span>,<span class="comment"> &lt;Tab&gt;</span>,<span class="comment"> &lt;BackSpace&gt;</span>,<span class="comment"> &lt;Delete&gt;</span></td>
+                            <td>Touche spécifique du clavier</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Left&gt;</span>,<span class="comment"> &lt;Right&gt;</span>,<span class="comment"> &lt;Up&gt;</span>,<span class="comment"> &lt;Down&gt;</span></td>
+                            <td>Flèches</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;Control-c&gt;</span>,<span class="comment"> &lt;Shift-a&gt;</span>,<span class="comment"> &lt;Alt-a&gt;</span></td>
+                            <td>Combinaison de touches du clavier</td>
+                        </tr>
+                        <tr>
+                            <td><span class="comment">&lt;FocusIn&gt;</span>,<span class="comment"> &lt;FocusOut&gt;</span></td>
+                            <td>Focus obtenu / perdu</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="messagebox">
+            <h2>Utiliser les boîtes de dialogue</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <table>
+                        <tr>
+                            <td>Importer le sous-module</td>
+                            <td>
+                                <pre class="python"><code><span class="word">from</span> tkinter <span class="word">import</span> messagebox</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Message d'information</td>
+                            <td>
+                                <pre class="python"><code>messagebox.<span class="function">showinfo</span>(
+    <span class="text">"Title"</span>,
+    <span class="text">"Message"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Message d'avertissement</td>
+                            <td>
+                                <pre class="python"><code>messagebox.<span class="function">showwarning</span>(
+    <span class="text">"Warning"</span>,
+    <span class="text">"Check data"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Message d'erreur</td>
+                            <td>
+                                <pre class="python"><code>messagebox.<span class="function">showerror</span>(
+    <span class="text">"Error"</span>,
+    <span class="text">"File does not exist"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Question oui/non</td>
+                            <td>
+                                <pre class="python"><code>messagebox.<span class="function">askyesno</span>(
+    <span class="text">"Confirm"</span>,
+    <span class="text">"Continue ?"</span>
+)</code></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/tkinter/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***************************************************************************************************************
+         FOOTER
+    **************************************************************************************************************** -->
+    <footer>
+        <div>© Copyright - Guillaume Peyrard</div>
+    </footer>
+</body>
+</html>

@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="../css/init.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="module" src="../js/script.js" defer></script>
-    <title>Fonctions</title>
+    <title>Module datetime</title>
 </head>
 <body>
     <!-- ***************************************************************************************************************
          HEADER
     **************************************************************************************************************** -->
     <header>
-        <h1>Les fonctions</h1>
+        <h1>datetime : pour prendre en compte le temps avec précision</h1>
 
         <!-- navbar
              ======================================================================================================= -->
@@ -43,22 +43,25 @@
                 <h2>Dans cette page</h2>
                 <ul>
                     <li class="sidebar__element">
-                        <a href="#simple">Définir une fonction simple</a>
+                        <a href="#import">Importer le module</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#parameters">Définir une fonction avec des paramètres</a>
+                        <a href="#now">Obtenir la date actuelle</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#return">Récupérer le résultat d'une fonction</a>
+                        <a href="#create">Créer une date</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#call">Appeler une fonction</a>
+                        <a href="#convert">Convertir texte ↔ date</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#errors">Erreurs fréquentes</a>
+                        <a href="#add">Ajouter une durée</a>
                     </li>
                     <li class="sidebar__element">
-                        <a href="#exercises">Exercices</a>
+                        <a href="#substract">Soustraire deux dates</a>
+                    </li>
+                    <li class="sidebar__element">
+                        <a href="#interval">Récupérer un intervalle de temps</a>
                     </li>
                 </ul>
             </section>
@@ -72,96 +75,23 @@
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="simple">
-            <h2>Définir une fonction simple</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>Les fonctions ont pour but de réaliser une série de tâches. On les nomme en snake_case.</p>
-                    <pre class="python"><code><span class="word">def</span> <span class="function">dire_bonjour</span>(): <span class="comment">&nbsp;# initialisation de la fonction</span>
-    <span class="function">print</span>(<span class="text">"Bonjour !"</span>)</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/functions/simple.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="parameters">
-            <h2>Définir une fonction avec des paramètres</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>La fonction réalise une série de tâches, mais qui dépendent de paramètres qu'on lui donne.</p>
-                    <pre class="python"><code><span class="word">def</span> <span class="function">dire_bonjour_nom</span>(nom): <span class="comment">&nbsp;# nom est un paramètre à donner à la fonction</span>
-    <span class="function">print</span>(<span class="text">f"Bonjour, {nom} !"</span>)</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/functions/parameters.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="return">
-            <h2>Récupérer le résultat d'une fonction</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>Quand on veut récupérer le résultat d'une fonction dans une variable, on utilise le mot<span class="comment"> return</span>.</p>
-                    <pre class="python"><code><span class="word">def</span> <span class="function">test_temperature</span>(valeur):
-    <span class="word">if</span> valeur <= <span class="number">0</span>:
-        message =  <span class="text">"il gèle !"</span>
-    <span class="word">else</span>:
-        message = <span class="text">"il ne gèle pas"</span>
-    <span class="word">return</span> message <span class="comment">&nbsp;# la fonction renvoie une valeur grâce à return</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/functions/return.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="call">
-            <h2>Appeler une fonction</h2>
+        <section id="import">
+            <h2>Importer le module</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
                     <p>
-                        Nous avons déjà appelé des fonctions : <span class="comment"> input()</span>,<span class="comment"> print()</span>,<span class="comment"> type()</span>... sont des fonctions. Les trois fonctions ci-dessus sont appelées successivement.</p>
-                    <pre class="python"><code><span class="function">dire_bonjour</span>()
-
-<span class="function">dire_bonjour_nom</span>(<span class="text">"Toto"</span>)
-
-reponse = <span class="function">test_temperature</span>(<span class="number">14.5</span>)
-<span class="function">print</span>(reponse)</code></pre>
+                        Le module<span class="comment"> datetime </span>permet de prendre en compte les dates et heures.
+                        Des calculs de durées sont possibles.
+                    </p>
+                    <pre class="python"><code><span class="word">from</span> datetime <span class="word">import</span> datetime, date, timedelta <span class="comment"> # importer le nécessaire seulement</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__video">
                     <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/functions/call.mp4" type="video/mp4">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -169,86 +99,129 @@ reponse = <span class="function">test_temperature</span>(<span class="number">14
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="errors">
-            <h2>Erreurs fréquentes</h2>
+        <section id="now">
+            <h2>Obtenir la date actuelle</h2>
             <div class="layout">
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
                 <div class="layout__text">
-                    <ul>
-                        <li>Oubli des<span class="comment"> () </span>en appelant la fonction :<span class="code error"> SyntaxError</span>.</li>
-                        <li>Mauvaise gestion des indentations :<span class="code error"> IndentationError</span>.</li>
-                        <li>Mauvaise gestion des paramètres donnés :<span class="code error"> TypeError</span>.</li>
-                        <li>Oubli de<span class="comment"> return </span>: <span class="error">comportement anormal</span>.</li>
-                        <li>Confusion<span class="comment"> print</span>/<span class="comment">return </span>dans une fonction : <span class="error">comportement anormal</span>.</li>
-                    </ul>
+                    <pre class="python"><code>datetime.<span class="function">now</span>() <span class="comment">&nbsp;# renvoie la date et l'heure actuelle</span>
+datetime.<span class="function">today</span>() <span class="comment">&nbsp;# renvoie la date actuelle</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </section>
 
         <!-- content section
              ======================================================================================================= -->
-        <section id="exercises">
-            <h2>Exercices</h2>
-            <ol>
+        <section id="create">
+            <h2>Créer une date</h2>
+            <div class="layout">
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire du code : qu'affiche le code suivant ?</h3>
-                    <div class="layout">
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>date(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>) <span class="comment">&nbsp;# renvoie un objet date, le 19/06/2026</span>
+datetime(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">30</span>) <span class="comment">&nbsp;# renvoie un objet datetime, le 19/06/2026 à 14:30:00</span></code></pre>
+                </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="python"><code>def calc(x):
-    return x + 3
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-print(calc(7))</code></pre>
-                        </div>
-                    </div>
-                </li>
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="convert">
+            <h2>Convertir texte ↔ date</h2>
+            <div class="layout">
 
-                <div class="separator"></div>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>datetime.<span class="function">strptime</span>( <span class="comment">&nbsp;# convertit une chaîne en objet datetime</span>
+    <span class="text">"19/06/2026"</span>, <span class="comment">&nbsp;# la date à convertir</span>
+    <span class="text">"%d/%m/%Y"</span> <span class="comment">&nbsp;# dont on précise le format</span>
+)
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Lire et écrire du code : corriger les erreurs du code suivant.</h3>
-                    <div class="layout">
+my_date.<span class="function">strftime</span>(<span class="text">"%d/%m/%Y"</span>) <span class="comment">&nbsp;# convertit un objet date ou datetime en chaîne</span></code></pre>
+                </div>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <pre class="python"><code>def triple x:
-return x*3
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-y = triple(4
-print(y)
-</code></pre>
-                        </div>
-                    </div>
-                </li>
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="add">
+            <h2>Ajouter une durée</h2>
+            <div class="layout">
 
-                <div class="separator"></div>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code><span class="function">timedelta</span>(days=<span class="number">7</span>)</code></pre>
+                </div>
 
-                <!-- exercise -------------------------------------------------------------------------------------- -->
-                <li>
-                    <h3>Écrire du code : coder le programme suivant.</h3>
-                    <div class="layout">
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__text">
-                            <ul>
-                                <li>Créer une fonction qui renvoie le carré et le cube d'un nombre (sous forme de tuple).</li>
-                            </ul>
-                        </div>
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="substract">
+            <h2>Soustraire deux dates</h2>
+            <div class="layout">
 
-                        <!-- layout element - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --->
-                        <div class="layout__video">
-                            <video controls controlsList="nodownload" preload="metadata">
-                                <source src="../assets/functions/ex3.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </li>
-            </ol>
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>delta = date2 - date1</code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- content section
+             ======================================================================================================= -->
+        <section id="interval">
+            <h2>Récupérer un intervalle de temps</h2>
+            <div class="layout">
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__text">
+                    <pre class="python"><code>delta.days <span class="comment">&nbsp;# ou .seconds ou .microseconds ; pas d'autres valeurs</span></code></pre>
+                </div>
+
+                <!-- layout element -------------------------------------------------------------------------------- -->
+                <div class="layout__video">
+                    <video controls controlsList="nodownload" preload="metadata">
+                        <source src="../assets/datetime/.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </section>
     </main>
 
