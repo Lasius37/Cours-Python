@@ -91,7 +91,7 @@
                         choses : parler, ... : ce sont ses méthodes. Créer la classe<span class="comment"> Personnage</span>
                         équivaut à concevoir un plan pour créer n'importe quel personnage. Tous les personnages
                         ainsi créés auront les mêmes attributs, avec des valeurs différentes, et les mêmes méthodes.
-                        On nomme une classe en PascalCase.
+                        On nomme une classe en mettant une majuscule à chaque mot (PascalCase).
                     </p>
                     <pre class="python"><code><span class="word">class</span> Personnage:
     <span class="word">def</span> <span class="function">__init__</span>(<span class="function">self</span>, nom, age): <span class="comment">&nbsp;# la méthode constructeur ; il faut lui donner deux paramètres</span>
@@ -99,7 +99,7 @@
         <span class="function">self</span>.age = age <span class="comment">&nbsp;# l'attribut age ; on lui affecte la valeur du paramètre age</span>
 
     <span class="word">def</span> <span class="function">parler</span>(<span class="function">self</span>): <span class="comment">&nbsp;# la méthode parler</span>
-        <span class="function">print</span>(<span class="text">f"Bonjour, je m'appelle {self.nom}"</span>)</code></pre>
+        <span class="function">print</span>(<span class="text">f"Bonjour, je m'appelle {self.nom}."</span>)</code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -125,7 +125,7 @@
                         deux instances de la classe<span class="comment"> Personnage</span>. Pour créer une instance,
                         il faut passer une valeur par paramètre de la méthode<span class="comment"> __init__</span>.
                     </p>
-                    <pre class="python"><code>perso_1 = Personnage(<span class="text">"Luke"</span>, <span class="number">25</span>) <span class="comment">&nbsp;# on passe des valeurs au paramètre du constructeur</span>
+                    <pre class="python"><code>perso_1 = Personnage(<span class="text">"Luke"</span>, <span class="number">25</span>) <span class="comment">&nbsp;# on passe des valeurs aux paramètres du constructeur</span>
 perso_2 = Personnage(<span class="text">"Yoda"</span>, <span class="number">163</span>) <span class="comment">&nbsp;# on crée une deuxième instance</span></code></pre>
                 </div>
 
@@ -235,7 +235,7 @@ perso_2.<span class="function">parler</span>() <span class="comment">&nbsp;# aff
     <span class="word">def</span> <span class="function">__str__</span>(<span class="function">self</span>):
         <span class="function">return <span class="text">f"{self.nom}, {self.age} ans."</span></span></code></pre>
                     <p>Ensuite, on peut refaire un<span class="comment"> print()</span>.</p>
-                    <pre class="python"><code><span class="function">print</span>(perso_1) <span class="comment">&nbsp;# affiche "Luke, 25 ans"</span></code></pre>
+                    <pre class="python"><code><span class="function">print</span>(perso_1) <span class="comment">&nbsp;# affiche "Luke, 25 ans."</span></code></pre>
                 </div>
 
                 <!-- layout element -------------------------------------------------------------------------------- -->
@@ -311,7 +311,7 @@ v1.demarrer()</code></pre>
         self.nom = nom
 
     def parler()
-        print("Bonjour, je suis {nom}")
+        print(f"Bonjour, je suis {nom}")
 
 r = Robot("R2-D2")
 r.parler</code></pre>
