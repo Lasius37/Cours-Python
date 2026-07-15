@@ -73,6 +73,11 @@ h1 {
     gap: var(--m-gap);
 }
 
+#navbar__home > span {
+    font-family: var(--title-font);
+    font-size: var(--text-size);
+}
+
 .navbar__element {
     display: flex;
     flex-wrap: nowrap;
@@ -265,15 +270,24 @@ h2 span, h3 span, .sidebar__element a span {
     margin: auto;
 }
 
-.layout__text table td {
+.layout__text table th, .layout__text table td {
     border: 1px solid black;
     min-width: 3em;
-    text-align: center;
     padding: 0 0.3rem;
 }
 
+.layout__text table th {
+    font-weight: bold;
+    text-align: center;
+}
+
+.layout__text table tr td {
+    font-weight: normal;
+    text-align: left;
+}
+
 .layout__text table td pre {
-    text-align: left
+    text-align: left;
 }
 
 /* *********************************************************************************************************************
@@ -314,6 +328,25 @@ h2 span, h3 span, .sidebar__element a span {
 .layout__text .js {
     background-color: var(--js-light);
     border-left: 0.3rem solid var(--js);
+}
+
+.layout__text .ai {
+    background-color: var(--ai-light);
+    border-left: 0.3rem solid var(--ai);
+    color: white;
+    font-family: var(--ai-font);
+    padding: 0 var(--s-gap);
+    box-sizing: border-box;
+    text-indent: 0;
+}
+
+.layout__text .handwriting {
+    color: #3D55CC;
+    font-family: var(--handwriting-font);
+    text-indent: 0;
+    border: 1px solid black;
+    padding: 0 var(--s-gap);
+    font-weight: bold;
 }
 
 .layout__text .console {

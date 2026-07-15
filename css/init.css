@@ -12,6 +12,8 @@
     --python-light: #FFF4CE;
     --js: #e4bd00;
     --js-light: #F8EEBF;
+    --ai: #000000;
+    --ai-light: #595959;
     --console: #303030;
     --console-light: #606060;
     --comment-color: #808080;
@@ -24,6 +26,8 @@
     --title-font: "Montserrat", sans-serif;
     --text-font: "Nunito Sans", sans-serif;
     --code-font: "Source Code Pro", monotype;
+    --ai-font: "Arial", sans-serif;
+    --handwriting-font: "Segoe Print", cursive;
 
     --small-text-size: 0.8rem;
     --text-size: 1.15rem;
@@ -45,7 +49,7 @@
 /* *********************************************************************************************************************
 ***                                                    INITIALIZE                                                    ***
 ********************************************************************************************************************* */
-html, body, ul, ol, pre, li, h1, h2, h3, h4, h5, h6, a, i, p, nav, section {
+html, body, ul, ol, pre, li, h1, h2, h3, h4, h5, h6, a, i, p, nav, td, th, section {
     font-family: var(--text-font);
     font-size: var(--text-size);
     font-weight: normal;

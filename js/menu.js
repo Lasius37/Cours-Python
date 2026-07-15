@@ -92,10 +92,13 @@ const generateHome = (homeData) => {
     const homeIcon = document.createElement("i");
     homeIcon.classList = homeData.icon;
 
+    const homeText = document.createElement("span", "navbar__title");
+
     const textNode = document.createTextNode(homeData.text);
 
     homeLink.appendChild(homeIcon);
-    homeLink.appendChild(textNode);
+    homeLink.appendChild(homeText);
+    homeText.appendChild(textNode);
     homeMenu.appendChild(homeLink);
 
     return homeMenu
