@@ -1,0 +1,192 @@
+/* Espacement du contenu par rapport au bord de la page */
+main {
+    padding: 0.5rem;
+}
+
+/* Titres des sections */
+main h2 {
+    padding-bottom: 0.25rem;
+
+    font-size: 1.3rem;
+    color: var(--color);
+
+    border-bottom: 3px solid var(--color);
+}
+
+main a {
+    color: var(--color-medium);
+    text-decoration: none;
+    padding: 0 0.2rem;
+}
+
+main a:hover, main a:focus-visible {
+    background-color: var(--color-light);
+}
+
+main a:active {
+    background-color: var(--color);
+    color: var(--color-light);
+}
+
+/* Mise en forme des zones de code */
+main pre {
+    max-width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+
+    overflow-x: auto;
+
+    font-family: var(--code-font);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre;
+}
+
+main pre > code {
+    font: inherit;
+}
+
+
+main ul, main ol {
+    margin: 0;
+    padding: 0;
+}
+
+main ol {
+    list-style: decimal inside;
+}
+
+main ul {
+    list-style: disc inside;
+}
+
+main ul li li {
+    list-style: circle inside;
+}
+
+/* Harmoniser le numéro et le titre des exercices. */
+main > section ol > li::marker,
+main > section ol > li > h3,
+main > section ul > li > h3 {
+    font-family: var(--title-font);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+}
+
+main > section ol > li > h3,
+main > section ul > li > h3 {
+    display: inline;
+}
+
+#exercises > ol > li,
+.layout__text > ol > li {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-medium);
+}
+
+
+
+#exercises ul > li > ul,
+.layout__text ul > li > ul {
+    padding-left: 3rem;
+}
+
+#exercises > ol > li:last-child,
+.layout__text > ol > li:last-child {
+    border-bottom: none;
+}
+
+/* Faire défiler les tableaux larges sans élargir la page. */
+main .table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+main table, main table th, main table td {
+    border: 1px solid black;
+    margin: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+main table th, main table td {
+    padding: 0.1rem 0.2rem;
+    max-width: 100%;
+}
+
+main table pre, main table code {
+    margin: 0;
+    padding: 0 0.2rem;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+
+/* Mis en forme des zones apparaissant comme du code ou des fonds d'écrans */
+.html {
+    background-color: var(--html-light);
+    border-left: 5px solid var(--html);
+}
+
+.css {
+    background-color: var(--css-light);
+    border-left: 5px solid var(--css);
+}
+
+.js {
+    background-color: var(--js-light);
+    border-left: 5px solid var(--js);
+}
+
+.python {
+    background-color: var(--python-light);
+    border-left: 5px solid var(--python);
+}
+
+.ai {
+    background-color: var(--ai-light);
+    border-left: 5px solid var(--ai);
+}
+
+.console {
+    background-color: var(--console-light);
+    border-left: 5px solid var(--console);
+}
+
+/* Couleurs associées aux types de données */
+.comment {
+    color: var(--comment-color);
+    font-family: var(--code-font);
+}
+
+.text {
+    color: var(--text-color);
+}
+
+.number {
+    color: var(--number-color);
+}
+
+.word {
+    color: var(--word-color);
+}
+
+.function {
+    color: var(--function-color);
+}
+
+.error {
+    color: var(--error-color);
+}
+
+span.comment {
+    font-size: 0.9rem;
+}
+
+@media (min-width: 480px) {
+    main p, main li {
+        text-align: justify;
+    }
+}

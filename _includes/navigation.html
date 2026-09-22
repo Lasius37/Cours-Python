@@ -1,0 +1,74 @@
+<details id="menu-container">
+    <summary id="menu-opener" aria-label="Menu principal">
+        <i class="bi bi-list" aria-hidden="true"></i>
+    </summary>
+
+    <div id="full-menu">
+        <a class="menu" id="home-btn" href="{{ '/index.html' | relative_url }}">
+            <i class="bi bi-house-fill"></i>
+            <span>Accueil</span>
+        </a>
+
+        <div class="menu" id="main-menu">
+            <details class="sub-menu" name="sub-menu">
+                <summary class="sub-menu-opener">
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span>Concepts de base</span>
+                </summary>
+
+                <ul>
+                    <li><a href="{{ '/pages/variables.html' | relative_url }}">Les variables</a></li>
+                    <li><a href="{{ '/pages/manipulate.html' | relative_url }}">Manipulation de variables</a></li>
+                    <li><a href="{{ '/pages/conditions.html' | relative_url }}">Les structures conditionnelles</a></li>
+                    <li><a href="{{ '/pages/loops.html' | relative_url }}">Les boucles</a></li>
+                    <li><a href="{{ '/pages/project-calc.html' | relative_url }}">Projet : la calculatrice</a></li>
+                </ul>
+            </details>
+
+            <details class="sub-menu" name="sub-menu">
+                <summary class="sub-menu-opener">
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span>Concepts intermédiaires</span>
+                </summary>
+
+                <ul>
+                    <li><a href="{{ '/pages/lists.html' | relative_url }}">Les listes</a></li>
+                    <li><a href="{{ '/pages/tuples.html' | relative_url }}">Les tuples</a></li>
+                    <li><a href="{{ '/pages/strings.html' | relative_url }}">Manipulation de chaînes de caractères</a></li>
+                    <li><a href="{{ '/pages/functions.html' | relative_url }}">Les fonctions</a></li>
+                    <li><a href="{{ '/pages/dictionaries.html' | relative_url }}">Les dictionnaires</a></li>
+                    <li><a href="{{ '/pages/project-customer.html' | relative_url }}">Projet : le fichier client</a></li>
+                </ul>
+            </details>
+
+            <details class="sub-menu" name="sub-menu">
+                <summary class="sub-menu-opener">
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span>Concepts avancés</span>
+                </summary>
+
+                <ul>
+                    <li><a href="{{ '/pages/classes.html' | relative_url }}">Les classes</a></li>
+                    <li><a href="{{ '/pages/errors.html' | relative_url }}">La gestion des erreurs</a></li>
+                    <li><a href="{{ '/pages/project-parking.html' | relative_url }}">Projet : le parking</a></li>
+                </ul>
+            </details>
+
+            <details class="sub-menu" name="sub-menu">
+                <summary class="sub-menu-opener">
+                    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span>Quelques modules utiles</span>
+                </summary>
+
+                <ul>
+                    <li><a href="{{ '/pages/csv.html' | relative_url }}">csv - tableaux de données</a></li>
+                    <li><a href="{{ '/pages/json.html' | relative_url }}">json - données structurées</a></li>
+                    <li><a href="{{ '/pages/pathlib-shutil.html' | relative_url }}">pathlib et shutil - système de fichiers</a></li>
+                    <li><a href="{{ '/pages/datetime.html' | relative_url }}">datetime - le temps</a></li>
+                    <li><a href="{{ '/pages/random.html' | relative_url }}">random - le hasard</a></li>
+                    <li><a href="{{ '/pages/tkinter.html' | relative_url }}">tkinter - interfaces graphiques</a></li>
+                </ul>
+            </details>
+        </div>
+    </div>
+</details>

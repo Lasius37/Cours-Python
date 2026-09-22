@@ -1,0 +1,126 @@
+/* Dimensions : inclure les bordures et le padding dans le calcul de la taille */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Document */
+html {
+    font-size: clamp(16px, 14px + 0.3vw, 20px);
+    scroll-padding-top: calc(var(--header-height, 0px) + 0.5rem);
+}
+
+body {
+    margin: 0;
+
+    font-family: var(--text-font);
+    line-height: 1.5;
+
+    background-color: white;
+}
+
+/* Média adaptatifs */
+img, video {
+    display: block;
+
+    min-width: 50px;
+    max-width: 100%;
+    height: auto;
+    width: fit-content;
+
+    margin: 1rem auto;
+    padding: 0.5rem;
+
+    border: 3px solid var(--color-medium);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px #808080;
+}
+
+table img {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title-font);
+}
+
+p {
+    text-indent: 2em;
+}
+
+main {
+    min-height: 70vh;
+    margin-bottom: 3rem;
+}
+
+/* Pied de page */
+body > footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 150px;
+    height: 100%;
+    padding: 1rem;
+
+    text-align: center;
+    color: var(--color-light);
+
+    background-color: var(--color-dark);
+}
+
+main a.download {
+    display: block;
+    width: fit-content;
+
+    margin: auto;
+    padding: 0.5rem;
+
+    color: #cc0000;
+    font-size: 3rem;
+    line-height: 1em;
+}
+
+main a.download:hover,
+main a.download:focus-visible {
+    color: #cc0000;
+    background-color: #eeaaaa;
+}
+
+main a.download:active {
+    color: #eeaaaa;
+    background-color: #cc0000;
+
+}
+
+/* Disposition du contenu et du sommaire */
+.page-layout {
+    display: grid;
+    grid-template-areas:
+        "sidebar"
+        "content";
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.page-layout > main {
+    grid-area: content;
+    min-width: 0;
+}
+
+.page-layout > aside {
+    grid-area: sidebar;
+    min-width: 0;
+
+    background-color: var(--color-medium);
+}
+
+@media (min-width: 1024px) {
+    .page-layout {
+        grid-template-areas: "content sidebar";
+        grid-template-columns: minmax(0, 1fr) clamp(16rem, 30%, 20rem);
+    }
+}

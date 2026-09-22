@@ -1,0 +1,137 @@
+/* Commande du sommaire */
+#page-toc > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+    margin-left: auto;
+    padding: 0.5rem;
+
+    color: var(--color-light);
+
+    list-style: none;
+    cursor: pointer;
+}
+
+#page-toc > summary::-webkit-details-marker {
+    display: none;
+}
+
+#page-toc > summary i {
+    font-size: 1.5rem;
+}
+
+/* Sur mobile, seule l’icône reste dans l’en-tête. */
+#page-toc > summary span {
+    display: none;
+}
+
+/* Le panneau prend toute la largeur sous l’en-tête. */
+#page-toc > nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+
+    width: 100%;
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+
+    background-color: var(--color-medium);
+}
+
+/* Titre visible à l’intérieur du panneau mobile */
+.toc-panel-title {
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+
+    font-family: var(--title-font);
+    font-weight: bold;
+    text-indent: 0;
+    text-align: center;
+    color: var(--color-dark);
+}
+
+/* Liste du sommaire sans puce ni retrait */
+#toc-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    background-color: var(--color-medium);
+}
+
+#toc-list a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+/* Même retour visuel à la souris et au clavier */
+#toc-list a:hover,
+#toc-list a:focus-visible {
+    color: var(--color-medium);
+    background-color: var(--color-dark);
+}
+
+/* Retour visuel pendant l’activation */
+#toc-list a:active {
+    color: var(--color-light);
+    background-color: var(--color);
+}
+
+/* Dès 768px : commande complète et panneau de 16rem */
+@media (min-width: 768px) {
+    #page-toc > summary span {
+        display: inline;
+    }
+
+    #page-toc > nav {
+        width: 16rem;
+    }
+
+    .toc-panel-title {
+        display: none;
+    }
+}
+
+/* Dès 1024px : sommaire dans sa colonne */
+@media (min-width: 1024px) {
+    #page-toc > summary {
+        margin: auto;
+
+        font-weight: bold;
+        color: var(--color-dark);
+
+        cursor: default;
+    }
+
+    #page-toc > summary i {
+        display: none;
+    }
+
+    #page-toc > nav {
+        position: static;
+        z-index: auto;
+
+        width: auto;
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    /* Garder le sommaire visible sous l’en-tête. */
+    #page-sidebar {
+        position: sticky;
+        top: var(--header-height);
+        align-self: start;
+
+        height: calc(100dvh - var(--header-height));
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+    }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+        <header id="main-header">
+            {% include header.html %}
+        </header>
+
+        <div class="page-layout">
+            <aside id="page-sidebar">
+                <details id="page-toc">
+                    <summary aria-label="Dans cette page">
+                        <i class="bi bi-card-list" aria-hidden="true"></i>
+                        <span>Dans cette page</span>
+                    </summary>
+
+                    <nav aria-label="Dans cette page">
+                        <p class="toc-panel-title">Dans cette page</p>
+                        <ul id="toc-list"></ul>
+                    </nav>
+                </details>
+            </aside>
+
+            <main>
+                {{ content }}
+            </main>
+        </div>
+
+        <footer>
+            {% include footer.html %}
+        </footer>
+    </body>
+</html>

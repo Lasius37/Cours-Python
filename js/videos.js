@@ -1,5 +1,5 @@
 // Si le fichier vidéo n'existe pas, masque la vidéo -------------------------------------------------------------------
-export const checkVideos = () => {
+const checkVideos = () => {
     document.querySelectorAll(".layout__video").forEach(container => {
         const video = container.querySelector("video");
         const source = container.querySelector("source");
@@ -17,4 +17,6 @@ export const checkVideos = () => {
         video.load();
     });
 };
+
+checkVideos()
 

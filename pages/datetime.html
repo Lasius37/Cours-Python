@@ -1,272 +1,193 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/init.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script type="module" src="../js/script.js" defer></script>
-    <title>Module datetime</title>
-</head>
-<body>
-    <!-- ***************************************************************************************************************
-         HEADER
-    **************************************************************************************************************** -->
-    <header>
-        <h1>datetime : pour prendre en compte le temps avec précision</h1>
+---
+layout: base
+short: "datetime"
+title: "datetime - le temps"
+---
 
-        <!-- navbar
-             ======================================================================================================= -->
-        <nav>
-            <ul class="navbar"></ul>
-        </nav>
-    </header>
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="import">
+        <h2>Importer le module</h2>
+        <div class="layout">
 
-    <!-- ***************************************************************************************************************
-         ASIDE
-    **************************************************************************************************************** -->
-    <aside>
-
-        <!-- sidebar
-             ======================================================================================================= -->
-        <nav class="sidebar">
-
-            <!-- sidebar group ------------------------------------------------------------------------------------- -->
-            <section class="sidebar__group">
-                <h2>Dans cette page</h2>
-                <ul>
-                    <li class="sidebar__element">
-                        <a href="#import">Importer le module</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#now">Obtenir la date actuelle</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#create">Créer une date</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#convert">Convertir texte ↔ date</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#add">Ajouter une durée</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#substract">Soustraire deux dates</a>
-                    </li>
-                    <li class="sidebar__element">
-                        <a href="#interval">Récupérer un intervalle de temps</a>
-                    </li>
-                </ul>
-            </section>
-        </nav>
-    </aside>
-
-    <!-- ***************************************************************************************************************
-         MAIN
-    **************************************************************************************************************** -->
-    <main>
-
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="import">
-            <h2>Importer le module</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <p>
-                        Le module<span class="comment"> datetime </span>permet de prendre en compte les dates et heures.
-                        Des calculs de durées sont possibles.
-                    </p>
-                    <pre class="python"><code><span class="word">from</span> datetime <span class="word">import</span> datetime, date, timedelta <span class="comment"> # importer le nécessaire seulement</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <p>
+                    Le module<span class="comment"> datetime </span>permet de prendre en compte les dates et heures.
+                    Des calculs de durées sont possibles.
+                </p>
+                <pre class="python"><code><span class="word">from</span> datetime <span class="word">import</span> datetime, date, timedelta <span class="comment"> # importer le nécessaire seulement</span></code></pre>
             </div>
-        </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="now">
-            <h2>Obtenir la date actuelle</h2>
-            <div class="layout">
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>datetime.<span class="function">now</span>() <span class="comment">&nbsp;# renvoie la date et l'heure actuelle</span>
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="now">
+        <h2>Obtenir la date actuelle</h2>
+        <div class="layout">
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>datetime.<span class="function">now</span>() <span class="comment">&nbsp;# renvoie la date et l'heure actuelle</span>
 date.<span class="function">today</span>() <span class="comment">&nbsp;# renvoie la date actuelle</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
-        </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="create">
-            <h2>Créer une date</h2>
-            <div class="layout">
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>date(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>) <span class="comment">&nbsp;# renvoie un objet date, le 19/06/2026</span>
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="create">
+        <h2>Créer une date</h2>
+        <div class="layout">
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>date(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>) <span class="comment">&nbsp;# renvoie un objet date, le 19/06/2026</span>
 datetime(<span class="number">2026</span>, <span class="number">6</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">30</span>) <span class="comment">&nbsp;# renvoie un objet datetime, le 19/06/2026 à 14:30:00</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
-        </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="convert">
-            <h2>Convertir texte ↔ date</h2>
-            <div class="layout">
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>datetime.<span class="function">strptime</span>( <span class="comment">&nbsp;# convertit une chaîne en objet datetime</span>
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="convert">
+        <h2>Convertir texte ↔ date</h2>
+        <div class="layout">
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>datetime.<span class="function">strptime</span>( <span class="comment">&nbsp;# convertit une chaîne en objet datetime</span>
     <span class="text">"19/06/2026"</span>, <span class="comment">&nbsp;# la date à convertir</span>
     <span class="text">"%d/%m/%Y"</span> <span class="comment">&nbsp;# dont on précise le format</span>
 )
 
 my_date.<span class="function">strftime</span>(<span class="text">"%d/%m/%Y"</span>) <span class="comment">&nbsp;# convertit un objet date ou datetime en chaîne</span></code></pre>
-                    <table>
-                        <tr>
-                            <td>jour</td>
-                            <td>
-                                <span class="comment">%A </span>↔<span class="comment"> "vendredi"</span><br>
-                                <span class="comment">%a </span>↔<span class="comment"> "Ven"</span><br>
-                                <span class="comment">%d </span>↔<span class="comment"> "19"</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>mois</td>
-                            <td>
-                                <span class="comment">%m </span>↔<span class="comment"> "06"</span><br>
-                                <span class="comment">%B </span>↔<span class="comment"> "juin"</span><br>
-                                <span class="comment">%b </span>↔<span class="comment"> "jui"</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>année</td>
-                            <td>
-                                <span class="comment">%Y </span>↔<span class="comment"> "2026"</span><br>
-                                <span class="comment">%y </span>↔<span class="comment"> "26"</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>heure</td>
-                            <td><span class="comment">%H </span>↔<span class="comment"> "14"</span></td>
-                        </tr>
-                        <tr>
-                            <td>minute</td>
-                            <td><span class="comment">%M </span>↔<span class="comment"> "30"</span></td>
-                        </tr>
-                        <tr>
-                            <td>seconde</td>
-                            <td><span class="comment">%S </span>↔<span class="comment"> "05"</span></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
+                <table>
+                    <tr>
+                        <td>jour</td>
+                        <td>
+                            <span class="comment">%A </span>↔<span class="comment"> "vendredi"</span><br>
+                            <span class="comment">%a </span>↔<span class="comment"> "Ven"</span><br>
+                            <span class="comment">%d </span>↔<span class="comment"> "19"</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>mois</td>
+                        <td>
+                            <span class="comment">%m </span>↔<span class="comment"> "06"</span><br>
+                            <span class="comment">%B </span>↔<span class="comment"> "juin"</span><br>
+                            <span class="comment">%b </span>↔<span class="comment"> "jui"</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>année</td>
+                        <td>
+                            <span class="comment">%Y </span>↔<span class="comment"> "2026"</span><br>
+                            <span class="comment">%y </span>↔<span class="comment"> "26"</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>heure</td>
+                        <td><span class="comment">%H </span>↔<span class="comment"> "14"</span></td>
+                    </tr>
+                    <tr>
+                        <td>minute</td>
+                        <td><span class="comment">%M </span>↔<span class="comment"> "30"</span></td>
+                    </tr>
+                    <tr>
+                        <td>seconde</td>
+                        <td><span class="comment">%S </span>↔<span class="comment"> "05"</span></td>
+                    </tr>
+                </table>
             </div>
-        </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="add">
-            <h2>Ajouter une durée</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>next_week = datetime.<span class="function">now</span>() + <span class="function">timedelta</span>(days=<span class="number">7</span>)</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="substract">
-            <h2>Soustraire deux dates</h2>
-            <div class="layout">
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="add">
+        <h2>Ajouter une durée</h2>
+        <div class="layout">
 
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>delta = date2 - date1</code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>next_week = datetime.<span class="function">now</span>() + <span class="function">timedelta</span>(days=<span class="number">7</span>)</code></pre>
             </div>
-        </section>
 
-        <!-- content section
-             ======================================================================================================= -->
-        <section id="interval">
-            <h2>Récupérer un intervalle de temps</h2>
-            <div class="layout">
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__text">
-                    <pre class="python"><code>delta.days <span class="comment">&nbsp;# ou .seconds, .total_seconds ou .microseconds ; pas d'autres valeurs</span></code></pre>
-                </div>
-
-                <!-- layout element -------------------------------------------------------------------------------- -->
-                <div class="layout__video">
-                    <video controls controlsList="nodownload" preload="metadata">
-                        <source src="../assets/datetime/.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- ***************************************************************************************************************
-         FOOTER
-    **************************************************************************************************************** -->
-    <footer>
-        <div>© Copyright - Guillaume Peyrard</div>
-    </footer>
-</body>
-</html>
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="substract">
+        <h2>Soustraire deux dates</h2>
+        <div class="layout">
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>delta = date2 - date1</code></pre>
+            </div>
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- content section
+         ======================================================================================================= -->
+    <section id="interval">
+        <h2>Récupérer un intervalle de temps</h2>
+        <div class="layout">
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__text">
+                <pre class="python"><code>delta.days <span class="comment">&nbsp;# ou .seconds, .total_seconds ou .microseconds ; pas d'autres valeurs</span></code></pre>
+            </div>
+
+            <!-- layout element -------------------------------------------------------------------------------- -->
+            <div class="layout__video">
+                <video controls controlsList="nodownload" preload="metadata">
+                    <source src="../assets/datetime/.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>

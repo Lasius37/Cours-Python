@@ -1,134 +1,79 @@
-import { MENU_DATA_FILE, PAGES, ROOT, NAVBAR_CONFIG, SIDEBAR_CONFIG } from "./constants.js";
+const toc = document.querySelector("#page-toc");  // Sélectionne le <details> du <aside>
+const summary = toc.querySelector("summary");  // Sélectionne le <summary> du <details> précédent
+const tocList = document.querySelector("#toc-list"); // Sélectionne la liste des chapitres de la page
+const sections = document.querySelectorAll("main > section[id]"); // Sélectionne toutes les sections qui ont un id (= le plan de la page)
+const mainDetails = document.querySelector("#menu-container");  // Sélectionne le <details> principal
+const screen768 = window.matchMedia("(min-width: 768px)");  // Vérifie si la largeur de la fenêtre d'affichage >= 768 px
+const screen1024 = window.matchMedia("(min-width: 1024px)");  // Vérifie si la largeur de la fenêtre d'affichage >= 1024 px
+const tocSlot = document.querySelector("#header-toc-slot");  // Sélectionne l'emplacement du sommaire de la page dans le header
+const tocSidebar = document.querySelector("#page-sidebar");  // Sélectionne l'emplacement de la barre de sommaire de la page
+const header = document.querySelector("#main-header");
 
 
-// charge les données du menu dans le fichier .json --------------------------------------------------------------------
-const loadMenuData = async () => {
-    const response = await fetch(MENU_DATA_FILE);
+// Ouvre le <details> principal si la largeur est >= 768px;
+function updateMenu () {
+    mainDetails.open = screen768.matches;
+}
 
-    if (!response.ok) {
-        throw new Error(`Erreur HTTP : ${response.status}`);
+
+// Ouvre le sommaire dès 1024px et désactive sa commande de fermeture.
+function updateToc() {
+    // Déplacer le même sommaire selon la largeur disponible.
+    const destination = screen1024.matches ? tocSidebar : tocSlot;
+    destination.appendChild(toc);
+
+    // Le sommaire est automatiquement développé si la fenêtre >=1024px de large
+    toc.open = screen1024.matches;
+
+    if (screen1024.matches) {
+        summary.setAttribute("aria-disabled", "true");
+        summary.setAttribute("tabindex", "-1");
+    } else {
+        summary.removeAttribute("aria-disabled");
+        summary.removeAttribute("tabindex");
     }
-
-    const data = await response.json();
-    return data;
-};
+}
 
 
-// Crée un élément HTML ------------------------------------------------------------------------------------------------
-const createElement = (tag, className="", text="") => {
-    const element = document.createElement(tag);
-
-    if (className) {element.className = className};
-
-    if (text) {element.textContent = text};
-
-    return element;
-};
-
-
-// Crée un lien HTML ---------------------------------------------------------------------------------------------------
-const createLink = (href, text) => {
-    const link = document.createElement("a");
-    link.href = href;
-    link.textContent = text;
-    return link;
-};
-
-
-// Génère un groupe de menu --------------------------------------------------------------------------------------------
-const generateGroup = (menuData, config) => {
-    const {
-        containerTag,
-        containerClass,
-        titleTag,
-        listTag,
-        listClass,
-        itemTag,
-        itemClass
-    } = config;
-
-    const container = createElement(containerTag, containerClass);
-    const title = createElement(titleTag, "", menuData.title);
-    const subContainer = createElement(listTag, listClass);
-
-    for (const subMenu of menuData.subMenu) {
-        const item = createElement(itemTag, itemClass);
-        const link = createLink(`${PAGES}${subMenu.tag}.html`, subMenu.text);
-
-        item.appendChild(link);
-        subContainer.appendChild(item);
-
-        container.appendChild(title);
-        container.appendChild(subContainer);
+// Empêche la fermeture sur grand écran, à la souris comme au clavier.
+summary.addEventListener("click", (event) => {
+    if (screen1024.matches) {
+        event.preventDefault();
     }
-
-    return container;
-};
+});
 
 
-// Génère une liste de groupes dans un conteneur -----------------------------------------------------------------------
-const generateStructure = (selector, dataList, generator) => {
-    const container = document.querySelector(selector);
-    if (!container) return;
-
-    const fragment = document.createDocumentFragment();
-
-    for (const data of dataList) {
-        fragment.appendChild(generator(data));
-    };
-
-    container.appendChild(fragment);
-};
-
-
-// Génère le bouton Accueil --------------------------------------------------------------------------------------------
-const generateHome = (homeData) => {
-    const homeMenu = createElement("li", "navbar__element");
-
-    const homeLink = document.createElement("a");
-    homeLink.id = homeData.id;
-    homeLink.href = `${ROOT}${homeData.target}.html`;
-
-    const homeIcon = document.createElement("i");
-    homeIcon.classList = homeData.icon;
-
-    const homeText = document.createElement("span", "navbar__title");
-
-    const textNode = document.createTextNode(homeData.text);
-
-    homeLink.appendChild(homeIcon);
-    homeLink.appendChild(homeText);
-    homeText.appendChild(textNode);
-    homeMenu.appendChild(homeLink);
-
-    return homeMenu
-};
-
-
-// Génère le menu complet ----------------------------------------------------------------------------------------------
-export const generateMenu = async () => {
-    const menuData = await loadMenuData();
-    const navBar = document.querySelector(".navbar");
-    if (!navBar) return;
-
-    const fragment = document.createDocumentFragment();
-    fragment.appendChild(generateHome(menuData.home));
-
-    for (const subMenuData of menuData.menu) {
-        fragment.appendChild(generateGroup(subMenuData, NAVBAR_CONFIG));
-    }
-
-    navBar.appendChild(fragment);
-};
-
-
-// Génère le menu aside ----------------------------------------------------------------------------------------------
-export const generateAside = async () => {
-    const menuData = await loadMenuData();
-
-    await generateStructure(
-        ".sidebar",
-        menuData.menu,
-        (subMenuData) => generateGroup(subMenuData, SIDEBAR_CONFIG)
+// Partager la hauteur réelle de l’en-tête avec le CSS.
+function updateHeaderHeight() {
+    document.documentElement.style.setProperty(
+        "--header-height",
+        `${header.getBoundingClientRect().height}px`
     );
-};
+}
+
+// Crée le sommaire de la page à partir du plan
+sections.forEach((section) => {
+    const heading = section.querySelector(":scope > h2");  // Sélectionne le titre de la section
+
+    if (!heading) return;  // En cas d'erreur
+
+    const link = document.createElement("a");
+    link.href = `#${encodeURIComponent(section.id)}`;  // Construit l'adresse du lien
+    link.textContent = heading.textContent.trim();
+
+    const item = document.createElement("li");
+    item.appendChild(link);  // inclut le lien dans un élément de liste
+    tocList.appendChild(item); // inclut le tout dans la liste
+});
+
+updateMenu();  // Fonctionne dès le départ
+updateToc(); // Fonctionne dès le départ
+
+screen768.addEventListener("change", updateMenu);  // Écoute les modifications de largeur de fenêtre (seuil : 768px)
+screen1024.addEventListener("change", updateToc); // Écoute les modifications ed largeur de fenêtre (seuil : 1024px)
+
+
+const headerObserver = new ResizeObserver(updateHeaderHeight);
+headerObserver.observe(header);
+
+updateHeaderHeight();
